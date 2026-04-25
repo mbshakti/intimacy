@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mbshakti.github.io/intimacy/sitemap.xml
+Sitemap: https://intimacyandthevariable.com/sitemap.xml
