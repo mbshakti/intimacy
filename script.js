@@ -82,6 +82,11 @@ function initChat() {
 
   let idx = 0;
 
+  function scrollIfAtBottom() {
+    const atBottom = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 30;
+    if (atBottom) feed.scrollTop = feed.scrollHeight;
+  }
+
   function nextMsg() {
     const msg = queue[idx % queue.length];
     idx++;
@@ -93,7 +98,7 @@ function initChat() {
     typing.textContent = '· · ·';
     typing.style.color = msg.color;
     feed.appendChild(typing);
-    feed.scrollTop = feed.scrollHeight;
+    scrollIfAtBottom();
 
     setTimeout(() => {
       if (feed.contains(typing)) feed.removeChild(typing);
@@ -114,7 +119,7 @@ function initChat() {
       el.appendChild(textEl);
 
       feed.appendChild(el);
-      feed.scrollTop = feed.scrollHeight;
+      scrollIfAtBottom();
 
       while (feed.children.length > 40) feed.removeChild(feed.firstChild);
 
