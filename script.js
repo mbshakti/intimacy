@@ -126,3 +126,21 @@ function initChat() {
 }
 
 initChat();
+
+function toggleAudio() {
+  const audio = document.getElementById('site-audio');
+  const btn = document.getElementById('audio-btn');
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = '▪ Nothing Compares 2 U';
+    btn.classList.add('active');
+  } else {
+    audio.pause();
+    btn.textContent = '♪ Nothing Compares 2 U';
+    btn.classList.remove('active');
+  }
+  audio.addEventListener('ended', () => {
+    btn.textContent = '♪ Nothing Compares 2 U';
+    btn.classList.remove('active');
+  }, { once: true });
+}

@@ -415,6 +415,7 @@ body {
   white-space: nowrap;
 }
 .footer-btn:last-child { border-right: none; }
+.footer-btn-audio.active { color: var(--magenta); }
 .footer-btn:hover { background: rgba(255, 138, 247, 0.07); color: var(--magenta); }
 .footer-url {
   padding: 9px 12px;
