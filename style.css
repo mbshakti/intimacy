@@ -415,7 +415,28 @@ body {
   white-space: nowrap;
 }
 .footer-btn:last-child { border-right: none; }
-.footer-btn-audio.active { color: var(--magenta); }
+.footer-audio {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: default;
+}
+.audio-title {
+  font-size: 11px;
+  color: var(--white);
+}
+.audio-play, .audio-pause {
+  background: none;
+  border: none;
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  color: var(--magenta);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: opacity 0.15s;
+}
+.audio-play:hover, .audio-pause:hover { opacity: 0.65; }
 .footer-btn:hover { background: rgba(255, 138, 247, 0.07); color: var(--magenta); }
 .footer-url {
   padding: 9px 12px;

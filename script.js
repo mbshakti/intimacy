@@ -129,18 +129,19 @@ initChat();
 
 function toggleAudio() {
   const audio = document.getElementById('site-audio');
-  const btn = document.getElementById('audio-btn');
+  const play = document.getElementById('audio-play-btn');
+  const pause = document.getElementById('audio-pause-btn');
   if (audio.paused) {
     audio.play();
-    btn.textContent = '▪ Nothing Compares 2 U';
-    btn.classList.add('active');
+    play.hidden = true;
+    pause.hidden = false;
   } else {
     audio.pause();
-    btn.textContent = '♪ Nothing Compares 2 U';
-    btn.classList.remove('active');
+    play.hidden = false;
+    pause.hidden = true;
   }
   audio.addEventListener('ended', () => {
-    btn.textContent = '♪ Nothing Compares 2 U';
-    btn.classList.remove('active');
+    play.hidden = false;
+    pause.hidden = true;
   }, { once: true });
 }

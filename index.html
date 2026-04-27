@@ -243,7 +243,11 @@
 
   <footer class="widget-footer">
     <div class="footer-btns">
-      <button class="footer-btn footer-btn-audio" id="audio-btn" onclick="toggleAudio()">♪ Nothing Compares 2 U</button>
+      <div class="footer-btn footer-audio">
+        <span class="audio-title">♪ Nothing Compares 2 U</span>
+        <button class="audio-play" id="audio-play-btn" onclick="toggleAudio()" aria-label="Play">▷</button>
+        <button class="audio-pause" id="audio-pause-btn" onclick="toggleAudio()" aria-label="Pause" hidden>▐▐</button>
+      </div>
       <button class="footer-btn" disabled>▷ Watch</button>
     </div>
     <audio id="site-audio" src="audio/nothing-compares.mp3" preload="none"></audio>
