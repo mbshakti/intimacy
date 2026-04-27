@@ -415,6 +415,7 @@ body {
   white-space: nowrap;
 }
 .footer-btn:last-child { border-right: none; }
+.mobile-audio { display: none; }
 .footer-audio {
   display: flex;
   align-items: center;
@@ -792,6 +793,15 @@ dl dd { color: var(--white); margin: 0; }
     min-height: unset;
   }
   .col-chat { min-height: 200px; }
+  .footer-audio { display: none; }
+  .mobile-audio {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
   .sidebar-links {
     margin-top: 8px;
   }
