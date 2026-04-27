@@ -127,19 +127,21 @@ function initChat() {
 
 initChat();
 
-function syncAudioBtns() {
-  const paused = document.getElementById('site-audio').paused;
-  document.querySelectorAll('.audio-play').forEach(b => b.hidden = !paused);
-  document.querySelectorAll('.audio-pause').forEach(b => b.hidden = paused);
-}
-
 function toggleAudio() {
   const audio = document.getElementById('site-audio');
+  const play = document.getElementById('audio-play-btn');
+  const pause = document.getElementById('audio-pause-btn');
   if (audio.paused) {
     audio.play();
+    play.hidden = true;
+    pause.hidden = false;
   } else {
     audio.pause();
+    play.hidden = false;
+    pause.hidden = true;
   }
-  syncAudioBtns();
-  audio.addEventListener('ended', syncAudioBtns, { once: true });
+  audio.addEventListener('ended', () => {
+    play.hidden = false;
+    pause.hidden = true;
+  }, { once: true });
 }
