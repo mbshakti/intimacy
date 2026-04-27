@@ -781,7 +781,7 @@ dl dd { color: var(--white); margin: 0; }
     border-bottom: 1px solid var(--border);
   }
   .col-left-video { aspect-ratio: 16 / 9; }
-  .widget-footer { order: 2; }
+  .widget-footer { order: 2; border-bottom: 1px solid var(--border); }
   .col-center {
     order: 3;
     border-right: none;
