@@ -441,41 +441,6 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
-.chat-head {
-  padding: 5px 10px;
-  background: rgba(234, 240, 0, 0.04);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-.chat-head-label {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--lime);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.chat-live-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--lime);
-  display: inline-block;
-  flex-shrink: 0;
-  animation: liveBlink 2s ease-in-out infinite;
-}
-@keyframes liveBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.15; }
-}
-.chat-channel {
-  font-size: 9px;
-  color: var(--muted);
-}
 .chat-feed {
   flex: 1;
   overflow-y: auto;
