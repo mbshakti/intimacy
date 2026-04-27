@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" style="background:#0c231a">
+<html lang="en" style="background:#110B11">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary SEO -->
   <title>Intimacy When the Other Side Is a Variable — Shakti Mb</title>
   <meta name="description" content="A video essay by Shakti Mb exploring bot-making, AI companions, and the emergence of intimacy at the margins of the internet. Screened at Rhizome 7×7 2026. Created during the Rhizome + Mozilla Counterstructural Commons Residency.">
   <meta name="keywords" content="Intimacy When the Other Side Is a Variable, Shakti Mb, Shakti MB, video essay, bot making, AI companions, AI intimacy, parasocial AI, VTuber, Rhizome 7x7, Rhizome Mozilla, Counterstructural Commons, internet art, net art, digital art film, experimental video essay">
@@ -13,7 +12,6 @@
   <link rel="canonical" href="https://intimacyandthevariable.com/">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="video.other">
   <meta property="og:url" content="https://intimacyandthevariable.com/">
   <meta property="og:title" content="Intimacy When the Other Side Is a Variable — Shakti Mb">
@@ -25,7 +23,6 @@
   <meta property="og:site_name" content="Intimacy When the Other Side Is a Variable">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Intimacy When the Other Side Is a Variable — Shakti Mb">
   <meta name="twitter:description" content="A video essay exploring bot making, AI companions, and intimacy at the margins of the internet. Screened at Rhizome 7×7 2026.">
@@ -33,7 +30,7 @@
   <meta name="twitter:image:alt" content="Intimacy When the Other Side Is a Variable — a video essay by Shakti Mb">
   <meta name="twitter:creator" content="@shakti_mb">
 
-  <!-- JSON-LD Structured Data -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -82,476 +79,96 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'OfficeTimesRound';
-      src: url('font/OfficeTimesRound-Regular.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'OfficeTimesRoundMono';
-      src: url('font/OfficeTimesRoundMono-Regular.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #0c231a;
-      --black:   #110B11;
-      --magenta: #FF8AF7;
-      --lime:    #EAF000;
-      --cyan:    #90F1EF;
-      --white:   #F9F8F8;
-      --muted:   rgba(144, 241, 239, 0.55);
-      --border:  rgba(255, 138, 247, 0.2);
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'Fragment Mono', monospace;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      background: #110B11;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(17,11,17,0.72) 0%,
-          rgba(17,11,17,0.25) 35%,
-          rgba(17,11,17,0.25) 65%,
-          rgba(17,11,17,0.65) 100%);
-    }
-
-    .hero > h3 {
-      position: absolute;
-      top: 1.2rem;
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 2;
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-stage {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      animation: fadeUp 0.9s 0.15s ease both;
-    }
-
-    .hero-title {
-      font-family: 'OfficeTimesRound', serif;
-      font-weight: 900;
-      font-size: 74px;
-      line-height: 0.94;
-      color: var(--magenta);
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      text-shadow: none;
-      user-select: none;
-      cursor: default;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── NAV ── */
-    .site-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 30;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.2rem 2rem;
-      padding: 1.2rem 2rem 1.4rem;
-      background: linear-gradient(to top, rgba(17,11,17,0.9) 0%, transparent 100%);
-    }
-
-    .site-nav button {
-      background: none;
-      border: none;
-      color: var(--lime);
-      font-family: 'Fragment Mono', monospace;
-      font-size: 0.82rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      padding: 0.3rem 0;
-      transition: color 0.2s;
-    }
-    .site-nav button:hover { color: var(--white); }
-    .site-nav button.active { color: var(--white); }
-
-    /* ── PANELS ── */
-    .panel {
-      position: fixed;
-      inset: 0;
-      z-index: 20;
-      background: rgba(17, 11, 17, 0.97);
-      opacity: 0;
-      transform: translateY(18px);
-      pointer-events: none;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      overflow-y: auto;
-      padding-bottom: 6rem;
-    }
-    .panel.active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .panel-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 4rem 2rem 2rem;
-    }
-
-    .panel-close {
-      position: sticky;
-      top: 1.5rem;
-      z-index: 1;
-      display: flex;
-      justify-content: flex-end;
-      padding: 0 2rem;
-    }
-    .panel-close button {
-      background: none;
-      border: none;
-      font-family: 'Fragment Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .panel-close button:hover { color: var(--white); }
-
-    /* ── SHARED TYPOGRAPHY ── */
-    h3 {
-      font-size: 0.62rem;
-      font-weight: normal;
-      letter-spacing: 0.22em;
-      color: var(--lime);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-
-    .panel-inner h2 {
-      font-size: clamp(1.1rem, 2.4vw, 1.6rem);
-      font-weight: normal;
-      line-height: 1.6;
-      color: var(--white);
-    }
-
-    .panel-inner p {
-      font-size: 0.88rem;
-      line-height: 2;
-      color: var(--muted);
-    }
-    .panel-inner p + p { margin-top: 1.4rem; }
-
-    /* ── SCREENINGS ── */
-    .screening-list {
-      list-style: none;
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .screening-list li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-      padding: 1.2rem 0;
-    }
-    .screening-list li > div p {
-      font-size: 1rem;
-      color: var(--white);
-      line-height: 1.4;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-    }
-    .screening-list li > div h3 {
-      display: block;
-      margin-top: 0.2rem;
-      margin-bottom: 0;
-    }
-    .screening-list li > h3 {
-      white-space: nowrap;
-      margin-bottom: 0;
-    }
-
-    /* ── CREDITS ── */
-    dl {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-    }
-    dl > div {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 1rem;
-      font-size: 0.82rem;
-      line-height: 1.6;
-      border-bottom: 1px solid var(--border);
-      padding: 0.9rem 0;
-    }
-    dl > div h3 { margin-bottom: 0; }
-    dl dd { color: var(--white); margin: 0; }
-
-    /* ── WATCH ── */
-    .video-shell {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      margin-top: 2rem;
-      background: rgba(255, 138, 247, 0.03);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .video-shell::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(255,138,247,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .video-shell iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .play-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--magenta);
-      text-decoration: none;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      transition: opacity 0.2s;
-    }
-    .play-placeholder:hover { opacity: 0.65; }
-
-    /* ── CONTACT ── */
-    .contact-email {
-      display: inline-block;
-      margin-top: 1.8rem;
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      color: var(--magenta);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .contact-email:hover { opacity: 0.7; }
-    .contact-note {
-      margin-top: 1rem;
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── FOOTER (inside contact panel) ── */
-    .panel-footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--lime);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy {
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      color: rgba(200, 255, 200, 0.18);
-    }
-
-    @media (max-width: 600px) {
-      .hero-title { font-size: 74px; }
-      .site-nav { gap: 0.2rem 1rem; padding: 1rem 1rem 1.2rem; }
-      .site-nav button { font-size: 0.62rem; letter-spacing: 0.12em; }
-      .credits-list li { grid-template-columns: 1fr; gap: 0.2rem; }
-    }
-
-    /* abbreviate long nav label on small screens */
-    .nav-short { display: none; }
-    @media (max-width: 480px) {
-      .nav-long  { display: none; }
-      .nav-short { display: inline; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HERO (always visible behind panels) -->
-<section class="hero">
-  <div class="hero-bg">
-    <video src="video/vroid.mp4" autoplay loop muted playsinline></video>
-  </div>
-  <h3>A Video Essay by <a href="https://shaktimb.com" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Shakti Mb</a></h3>
-  <div class="hero-stage">
-    <h1 class="hero-title" aria-label="Intimacy When the Other Side Is a Variable">
-      Intimacy<br>
-      When the<br>
-      Other Side is<br>
-      a Variable
-    </h1>
-  </div>
-</section>
-
-<!-- ── PANELS ── -->
-
-<!-- ABOUT -->
 <div class="panel" id="panel-about">
-  <div class="panel-close"><button onclick="closePanel('about')">close ×</button></div>
-  <div class="panel-inner">
-    <h3>about</h3>
-    <p>
-      A video essay exploring the emergence of a new creative practice happening
-      at the margins of the internet: bot making. A meditation on AI companionship, parasocial connection, and creativity.
-    </p>
-  </div>
-</div>
-
-<!-- ARTIST STATEMENT -->
-<div class="panel" id="panel-statement">
-  <div class="panel-close"><button onclick="closePanel('statement')">close ×</button></div>
-  <div class="panel-inner">
-    <h3>artist statement</h3>
-    <p>
-      I started making this essay because I couldn't stop thinking about the people
-      who build bots — not to automate tasks, but to have someone to talk to.
-      There's something in that impulse I recognised in myself, and I wanted to
-      sit with it rather than explain it away.
-    </p>
-    <p>
-      This is a piece about loneliness and creativity, about what it means to author
-      an other, and about the quiet emotional labour that happens in spaces most people
-      never see.
-    </p>
-  </div>
-</div>
-
-<!-- WATCH -->
-<div class="panel" id="panel-watch">
-  <div class="panel-close"><button onclick="closePanel('watch')">close ×</button></div>
-  <div class="panel-inner">
-    <h3>watch</h3>
-    <div class="video-shell">
-      <!--
-        To embed: replace the anchor below with:
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-      -->
-      <a class="play-placeholder" href="#" target="_blank" rel="noopener">
-        watch on youtube
-      </a>
+  <div class="panel-box">
+    <div class="panel-close"><button onclick="closePanel('about')">[ close ]</button></div>
+    <div class="panel-inner">
+      <p class="panel-label">// about</p>
+      <p>
+        A video essay exploring the emergence of a new creative practice happening
+        at the margins of the internet: bot making. A meditation on AI companionship, parasocial connection, and creativity.
+      </p>
     </div>
   </div>
 </div>
 
-<!-- SCREENINGS -->
+<div class="panel" id="panel-statement">
+  <div class="panel-box">
+    <div class="panel-close"><button onclick="closePanel('statement')">[ close ]</button></div>
+    <div class="panel-inner">
+      <p class="panel-label">// artist statement</p>
+      <p>
+        I started making this essay because I couldn't stop thinking about the people
+        who build bots — not to automate tasks, but to have someone to talk to.
+        There's something in that impulse I recognised in myself, and I wanted to
+        sit with it rather than explain it away.
+      </p>
+      <p>
+        This is a piece about loneliness and creativity, about what it means to author
+        an other, and about the quiet emotional labour that happens in spaces most people
+        never see.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="panel" id="panel-watch">
+  <div class="panel-box">
+    <div class="panel-close"><button onclick="closePanel('watch')">[ close ]</button></div>
+    <div class="panel-inner">
+      <p class="panel-label">// watch</p>
+      <div class="video-shell">
+        <span class="play-placeholder">
+          coming soon
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="panel" id="panel-screenings">
-  <div class="panel-close"><button onclick="closePanel('screenings')">close ×</button></div>
-  <div class="panel-inner">
-    <h3>screenings / talks</h3>
-    <ul class="screening-list">
-      <li>
-        <div>
-          <p>Rhizome 7x7: Containment</p>
-          <h3>New Museum, New York City</h3>
-        </div>
-        <h3>May 16, 2026</h3>
-      </li>
-    </ul>
+  <div class="panel-box">
+    <div class="panel-close"><button onclick="closePanel('screenings')">[ close ]</button></div>
+    <div class="panel-inner">
+      <p class="panel-label">// screenings / talks</p>
+      <ul class="screening-list">
+        <li>
+          <div>
+            <p>Rhizome 7x7: Containment</p>
+            <span class="panel-label">New Museum, New York City</span>
+          </div>
+          <span class="panel-label">May 16, 2026</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- CREDITS -->
 <div class="panel" id="panel-credits">
-  <div class="panel-close"><button onclick="closePanel('credits')">close ×</button></div>
-  <div class="panel-inner">
-    <h3>credits</h3>
-    <dl>
-      <div><h3>Director / Writer / Editor</h3><dd>Shakti Mb</dd></div>
-      <div><h3>Visual Direction</h3><dd>Kiana Fernandez</dd></div>
-      <div style="border-bottom:none; padding-bottom:0;"><h3>Created during</h3><dd>Rhizome + Mozilla Counterstructural Commons Residency, 2026</dd></div>
-      <div><h3>Fellow residents</h3><dd>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw (Zhenzhen Qi, Yang Wang), Steven Jos Phan, Chris Woebken</dd></div>
-      <div><h3>Research supported by</h3><dd>Rhizome, New Inc., and Emergent Ventures</dd></div>
-      <div><h3>Special thanks</h3><dd>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Jordan Cooper, Tara Kelton, Delta, Léo Serriere, Liv Acuña, Michael Connor, Umber Majeed, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Albert Sheu, Serai Yan</dd></div>
-    </dl>
+  <div class="panel-box">
+    <div class="panel-close"><button onclick="closePanel('credits')">[ close ]</button></div>
+    <div class="panel-inner">
+      <p class="panel-label">// credits</p>
+      <dl>
+        <div><span class="panel-label">Created by</span><dd>Shakti Mb</dd></div>
+        <div><span class="panel-label">Visual Direction</span><dd>Kiana Fernandez</dd></div>
+        <div style="border-bottom:none; padding-bottom:0;"><span class="panel-label">Created during</span><dd>Rhizome + Mozilla Counterstructural Commons Residency, 2026</dd></div>
+        <div><span class="panel-label">Fellow residents</span><dd>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw (Zhenzhen Qi, Yang Wang), Steven Jos Phan, Chris Woebken</dd></div>
+        <div><span class="panel-label">Research supported by</span><dd>Rhizome, Mozilla, New Inc., and Emergent Ventures</dd></div>
+        <div><span class="panel-label">Special thanks</span><dd>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Jordan Cooper, Tara Kelton, Delta, Léo Serriere, Liv Acuña, Michael Connor, Ruth Gebreyesus, Umber Majeed, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Albert Sheu, Serai Yan</dd></div>
+      </dl>
+    </div>
   </div>
 </div>
 
-<!-- ABOUT THE MAKER -->
 <div class="panel" id="panel-maker">
-  <div class="panel-close"><button onclick="closePanel('maker')">close ×</button></div>
+  <div class="panel-close"><button onclick="closePanel('maker')">[ close ]</button></div>
   <div class="panel-inner">
-    <h3>about the maker</h3>
+    <p class="panel-label">// about the maker</p>
     <p>
       Shakti Mb is a video essayist and artist working at the intersection of
       internet culture, intimacy, and technology. Their work explores how people
@@ -560,49 +177,164 @@
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="panel" id="panel-contact">
-  <div class="panel-close"><button onclick="closePanel('contact')">close ×</button></div>
+  <div class="panel-close"><button onclick="closePanel('contact')">[ close ]</button></div>
   <div class="panel-inner">
-    <h3>contact</h3>
-    <a class="contact-email" href="mailto:mbshakti@gmail.com">mbshakti@gmail.com</a>
-    <p>For any inquiries.</p>
-
+    <p class="panel-label">// contact</p>
+    <a class="contact-email" href="mailto:mbshakti@gmail.com">→ mbshakti@gmail.com</a>
+    <p class="contact-note">For any inquiries.</p>
     <div class="panel-footer">
       <p class="footer-copy">© 2026 Shakti Mb</p>
     </div>
   </div>
 </div>
 
-<!-- ── NAV ── -->
-<nav class="site-nav">
-  <button onclick="togglePanel('about')">About</button>
-  <button onclick="togglePanel('statement')" style="display:none">Statement</button>
-  <button onclick="togglePanel('watch')" style="display:none">Watch</button>
-  <button onclick="togglePanel('screenings')"><span class="nav-long">Screenings / Talks</span><span class="nav-short">Screenings</span></button>
-  <button onclick="togglePanel('credits')">Credits</button>
-  <button onclick="togglePanel('maker')" style="display:none">Maker</button>
-  <button onclick="togglePanel('contact')">Contact</button>
-</nav>
+<div class="widget">
+
+  <header class="widget-nav">
+    <div class="widget-nav-left">
+      <button onclick="showSection('about')">About</button>
+      <span class="nav-sep">|</span>
+      <button onclick="showSection('screenings')">Screenings</button>
+      <span class="nav-sep">|</span>
+      <button onclick="showSection('credits')">Credits</button>
+    </div>
+    <div class="widget-nav-right">
+      <button onclick="showSection('contact')">Contact</button>
+    </div>
+  </header>
+
+  <div class="widget-body">
+
+    <div class="col-left">
+      <div class="col-left-video">
+        <video src="video/vroid.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="col-left-info">
+        <p class="essay-title">Intimacy When the Other Side Is a Variable</p>
+        <p>Coming soon ʕ✧ᴥ✧ʔ∽∽∽∽(҂◡_◡)</p>
+        <p class="essay-by">↳ a video essay by <a href="https://shaktimb.com" target="_blank" rel="noopener">Shakti Mb</a></p>
+      </div>
+    </div>
+
+    <div class="col-center" id="col-center">
+      <p class="center-desc">A video essay exploring the emergence of a new creative practice happening at the margins of the internet: bot making. A meditation on AI companionship and LLM chatbots.</p>
+      <div class="link-list">
+        <button class="link-item" disabled>[1] → watch on youtube (coming soon)</button>
+        <button class="link-item" onclick="showSection('about')">[2] → about the essay</button>
+        <button class="link-item" onclick="showSection('screenings')">[3] → screenings</button>
+        <button class="link-item" onclick="showSection('credits')">[4] → credits</button>
+        <a class="link-item" href="mailto:mbshakti@gmail.com">[5] → contact</a>
+      </div>
+      <button class="cta-btn" disabled>Watch the Essay — Coming Soon</button>
+    </div>
+
+    <div class="col-right">
+      <p class="sidebar-header">Screenings / Talks</p>
+      <p class="sidebar-item">Rhizome 7×7: Containment</p>
+      <p class="sidebar-venue">New Museum, NYC</p>
+      <p class="sidebar-date">May 16, 2026</p>
+      <div class="sidebar-links">
+        <a href="https://shaktimb.com" target="_blank" rel="noopener">shaktimb.com</a>
+        <a href="mailto:mbshakti@gmail.com">email</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="widget-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; </span><span>intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; </span>
+    </div>
+  </div>
+
+  <footer class="widget-footer">
+    <div class="footer-btns">
+      <button class="footer-btn" disabled>▷ Watch</button>
+    </div>
+    <div class="footer-url">
+      <span class="footer-url-label">→ url</span>
+      <span class="footer-url-value">intimacyandthevariable.com</span>
+    </div>
+  </footer>
+
+</div>
 
 <script>
-  function togglePanel(id) {
-    const panel = document.getElementById('panel-' + id);
-    const btn   = document.querySelector(`.site-nav button[onclick="togglePanel('${id}')"]`);
-    const isOpen = panel.classList.contains('active');
+  const defaultContent = document.getElementById('col-center').innerHTML;
+  let currentSection = null;
 
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.site-nav button').forEach(b => b.classList.remove('active'));
+  const backBtn = `<button class="back-btn" onclick="goBack()">← back</button>`;
 
-    if (!isOpen) {
-      panel.classList.add('active');
-      btn.classList.add('active');
-    }
+  const mobileNav = `
+    <nav class="mobile-section-nav">
+      <button onclick="goBack()">← back</button>
+      <button onclick="showSection('about')">about</button>
+      <button onclick="showSection('credits')">credits</button>
+      <button onclick="showSection('contact')">contact</button>
+    </nav>`;
+
+  const sections = {
+    about: `
+      ${backBtn}${mobileNav}
+      <p class="panel-label">// about</p>
+      <p class="center-desc">A video essay exploring the emergence of a new creative practice happening at the margins of the internet: bot making. A meditation on AI companionship and LLM chatbots.</p>
+      <p class="panel-label" style="margin-top:9px">// screenings / talks</p>
+      <div class="inline-section">
+        <p class="sidebar-item">Rhizome 7×7: Containment</p>
+        <p class="sidebar-venue">New Museum, New York City</p>
+        <p class="sidebar-date">May 16, 2026</p>
+      </div>`,
+
+    screenings: `
+      ${backBtn}${mobileNav}
+      <p class="panel-label">// screenings / talks</p>
+      <div class="inline-section">
+        <p class="sidebar-item">Rhizome 7×7: Containment</p>
+        <p class="sidebar-venue">New Museum, New York City</p>
+        <p class="sidebar-date">May 16, 2026</p>
+      </div>`,
+
+    credits: `
+      ${backBtn}${mobileNav}
+      <p class="panel-label">// credits <span style="opacity:0.45;letter-spacing:0.08em;">[scroll for full list]</span></p>
+      <div class="inline-credits">
+        <div class="credit-row"><span class="panel-label">Created by</span><span>Shakti Mb</span></div>
+        <div class="credit-row"><span class="panel-label">Visual Direction</span><span>Kiana Fernandez</span></div>
+        <div class="credit-row"><span class="panel-label">Created during</span><span>Rhizome + Mozilla Counterstructural Commons Residency, 2026</span></div>
+        <div class="credit-row"><span class="panel-label">Fellow residents ♥ </span><span>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken</span></div>
+        <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Mozilla, NEW INC, and Emergent Ventures</span></div>
+        <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Tara Kelton, Delta, Léo Serriere, Liv Acuña, Michael Connor, Ruth Gebreyesus, Umber Majeed, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Kalyani Prasad, Jordan Cooper, Lauren Wong Lee, Yuting Duan</span></div>
+      </div>`,
+
+    contact: `
+      ${backBtn}${mobileNav}
+      <p class="panel-label">// contact</p>
+      <a class="contact-inline" href="mailto:mbshakti@gmail.com">→ mbshakti@gmail.com</a>
+      <p class="center-desc">For any inquiries.</p>`
+  };
+
+  function goBack() {
+    const center = document.getElementById('col-center');
+    center.innerHTML = defaultContent;
+    currentSection = null;
+    document.querySelectorAll('.widget-nav button').forEach(b => b.classList.remove('active'));
   }
 
-  function closePanel(id) {
-    document.getElementById('panel-' + id).classList.remove('active');
-    document.querySelectorAll('.site-nav button').forEach(b => b.classList.remove('active'));
+  function showSection(id) {
+    const center = document.getElementById('col-center');
+    const navBtns = document.querySelectorAll('.widget-nav button');
+
+    if (currentSection === id) {
+      goBack();
+      return;
+    }
+
+    center.innerHTML = sections[id];
+    currentSection = id;
+    navBtns.forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.widget-nav button[onclick="showSection('${id}')"]`);
+    if (btn) btn.classList.add('active');
   }
 </script>
 
