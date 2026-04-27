@@ -113,25 +113,13 @@ function initChat() {
       el.appendChild(user);
       el.appendChild(textEl);
 
-      if (msg.reactions?.length) {
-        const reacts = document.createElement('div');
-        reacts.className = 'chat-reacts';
-        for (const r of msg.reactions) {
-          const span = document.createElement('span');
-          span.className = 'chat-react';
-          span.textContent = `${r.emoji} ${r.count}`;
-          reacts.appendChild(span);
-        }
-        el.appendChild(reacts);
-      }
-
       feed.appendChild(el);
       feed.scrollTop = feed.scrollHeight;
 
       while (feed.children.length > 40) feed.removeChild(feed.firstChild);
 
-      setTimeout(nextMsg, 1800 + Math.random() * 3000);
-    }, 700 + Math.random() * 1100);
+      setTimeout(nextMsg, 400 + Math.random() * 600);
+    }, 150 + Math.random() * 250);
   }
 
   setTimeout(nextMsg, 1200);

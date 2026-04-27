@@ -474,19 +474,6 @@ body {
   color: rgba(249, 248, 248, 0.7);
   word-break: break-word;
 }
-.chat-reacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-  margin-top: 2px;
-}
-.chat-react {
-  font-size: 9px;
-  background: rgba(255, 138, 247, 0.06);
-  border: 1px solid var(--border);
-  padding: 1px 4px;
-  color: rgba(249,248,248,0.5);
-}
 .chat-typing {
   font-size: 10px;
   color: var(--muted);
