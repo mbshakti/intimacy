@@ -437,18 +437,17 @@ body {
 /* ── CHAT COLUMN ── */
 .col-chat {
   border-left: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
+  position: relative;
   overflow: hidden;
 }
 .chat-feed {
-  flex: 1;
+  position: absolute;
+  inset: 0;
   overflow-y: auto;
   padding: 8px 10px;
   display: flex;
   flex-direction: column;
   gap: 7px;
-  min-height: 160px;
   scrollbar-width: thin;
   scrollbar-color: rgba(234,240,0,0.25) transparent;
 }
