@@ -791,7 +791,7 @@ dl dd { color: var(--white); margin: 0; }
     border-top: none;
     min-height: unset;
   }
-  .col-chat { display: none; }
+  .col-chat { min-height: 200px; }
   .sidebar-links {
     margin-top: 8px;
   }
