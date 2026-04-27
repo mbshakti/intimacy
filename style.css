@@ -29,7 +29,7 @@ body {
 
 /* ─── WIDGET ─── */
 .widget {
-  width: min(910px, 100%);
+  width: min(740px, 100%);
   background: var(--black);
   border: 1px solid rgba(255, 138, 247, 0.42);
   font-size: 11px;
@@ -84,7 +84,7 @@ body {
 /* ── WIDGET BODY ── */
 .widget-body {
   display: grid;
-  grid-template-columns: 178px 1fr 178px 188px;
+  grid-template-columns: 178px 1fr 188px;
   border-bottom: 1px solid var(--border);
 }
 
