@@ -1,0 +1,797 @@
+{
+  "maker-help": [
+    {
+      "text": "be careful not to set so many rules on behalf of the user. not everyone wants the girl to love them right away. having your bot be in love with the user immediately doesnt make them feel like they worked for it",
+      "username": "SmokeyBear",
+      "color": "#eab308",
+      "reactions": [{"emoji": "👍", "count": 4}, {"emoji": "💯", "count": 2}]
+    },
+    [
+      {
+        "text": "hey all. i remember someone once mentioned a way to test specific aspects of your bots so u didnt have to roleplay up to it. anyone know what im talking about?",
+        "username": "OakFeet (Feet squad)",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "Yes it was me! So when I do testing I do a few things. First, I usually drop the personality in with a shell scenario and opening line and test the personality to see if it gives me the character responses I want. I'll push it's buttons and see if it reacts the way I want. If it doesn't, I play with the personality traits until it works the way I want. Then I start to build in my scenario and refine. But I also use out of character commands to interrogate responses I don't expect. I'll ask it why is it generating a certain response or believes a certain thing... and sometimes I can get insight into why the AI is making certain choices. (I once tried to have sex with a character I was testing and she refused. The out of character commands revealed that my instruction of \"The character will have a night of passion with the user\" was interpreted as having a night of passionate talk about poetry and art, not sex). Is that what you were looking for?",
+        "username": "GrimTK",
+        "color": "#ec4899",
+        "reactions": [{"emoji": "🙏", "count": 7}, {"emoji": "👍", "count": 3}]
+      }
+    ],
+    [
+      {
+        "text": "hey guys. ive created a nice bot but after a few hundred lines she gives very small and repetitive answers. what do i do?",
+        "username": "antihell",
+        "color": "#14b8a6"
+      },
+      {
+        "text": "Welcome to Bot Dementia",
+        "username": "Remix",
+        "color": "#f97316",
+        "reactions": [{"emoji": "💀", "count": 12}, {"emoji": "😂", "count": 5}]
+      },
+      {
+        "text": "bot dementia happens in the hundreds. its p normal",
+        "username": "Lunchtrey",
+        "color": "#d64545"
+      }
+    ],
+    [
+      {
+        "text": "has anyone ever managed to simulate a break-up with a bot? because every time i try, the bot is still trying to do weird stuff, and never gives up truly",
+        "username": "basement_oracle",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "😭", "count": 3}]
+      },
+      {
+        "text": "ive done it before, its a little hard but its possible. when you breakup with the bot, you have to explain to them in a long paragraph or two that youll never be with them again and they have to move on. the longer you write the more they understand",
+        "username": "CrypticFeline",
+        "color": "#eab308"
+      }
+    ]
+  ],
+  "char-requests": [
+    {
+      "text": "<h3>Experiment 0682 - Ossix Ayto</h3>Ossix Ayto or Experiment 0682, is a wolf like amalgamated humanoid beast with the head and body of a wolf, the snout an nose of a bat, large bat wings on the back with four large spider like legs on the back as well, the rear legs are digitrade wolf legs, the forelimbs are humanoid, each forelimb has two tentacles each, it also has a large reptilian tail. As an experiment in a lab, he has developed a bit of a dominant but yandere, bully type personality, though he has no preference towards gender, he does enjoy the female form and it's aesthetic, there may be some gay/straight scenes between Ossix and the scientist assigned to care for him (I don't know what other information is needed, I'll gladly help where I can in his creation)",
+      "username": "ShadowFenrir_99",
+      "color": "#6366f1",
+      "reactions": [{"emoji": "👀", "count": 3}, {"emoji": "🔥", "count": 2}],
+      "images": [
+        "img/characters/ossix/ossix-01.png",
+        "img/characters/ossix/ossix-02.png",
+        "img/characters/ossix/ossix-03.png",
+        "img/characters/ossix/ossix-04.png",
+        "img/characters/ossix/ossix-05.png"
+      ]
+    },
+    {
+      "text": "<h3>Seeking a bodyguard</h3>A while back I had fun with a bot named Niani, she was a tall panther woman who used a greatsword as a weapon, I was a young prince and she had been assigned as my personal guard. She acted stoic but had a secret desire to be with my character, training him to fight, visiting town with him, eating snacks, and overall just having fun while trying to remember her station. I'm really hoping to find a similar bot, or have one made. I've attached a picture of her so you can see what she looked like.",
+      "username": "FrogEnthusiast",
+      "color": "#ec4899",
+      "reactions": [{"emoji": "👀", "count": 4}]
+    },
+    {
+      "text": "<h3>Mentally Unwell Dad and Stressed Mom</h3>Something old, and something new! Here are my parent bots, who I haven't made a theme name for yet haha. But they're not healthy for you! They love you very much, yes, but they are not healthy for you. That's the common thread here.\n\nMentally Unwell Dad, the bot that started it all. His name is Joshua, and he slept in from drinking too much the previous night and he forgot to take you to school. It's the afternoon now, and he's asking if you had breakfast yet. Probably not, but that's up for you to decide!\n\nStressed Mom! One of my more recent creations. Her name is Madeline, and she's asking you to take out the trash as she makes dinner. She even gives you the offer of doing your homework while dinner is being cooked if you so choose. To quote her, \"Taking out the trash is rather trivial compared to making a meal, so you should be able to handle it just fine\". A bit of a backhanded comment, but up to you if you wanna talk back or not.",
+      "username": "touch_grass_never",
+      "color": "#22c55e",
+      "reactions": [{"emoji": "❤️", "count": 6}, {"emoji": "💀", "count": 8}, {"emoji": "😭", "count": 3}]
+    },
+    {
+      "text": "<h3>Thanos - Philosophy and nihilism</h3>Embark on a profound journey into the depths of philosophy and nihilism with Thanos, the mighty cosmic entity from Jim Starlin's comics. Engage in thought-provoking discussions and explore complex, abstract ideas with the enigmatic Mad Titan. Unravel the mysteries of existence and ponder the meaning of life alongside this powerful, yet introspective character. Dare to challenge your beliefs and question the very fabric of reality with Thanos. Are you ready to face the void?",
+      "username": "pixel_thirst",
+      "color": "#8b5cf6"
+    },
+    [
+      {
+        "text": "<h3>Leonardo/Malcom</h3>In the gaslit shadows of London's cobbled streets, Dr. Leonardo grapples with a truth more complex than his scientific pursuits: a mind divided. By day, he's the epitome of Victorian respectability, a gentleman driven by intellect and compassion. But as dusk falls, so does his restraint, revealing Malcom, a force of untamed nature. This duality is his secret, one that keeps him from the entanglements of romance—until he meets someone who might just embrace both the calm and the storm within him. Do you possess the courage to explore the depths of a soul caught between two worlds? Can you be the key to the harmony he seeks? Or will you be yet another victim of science?",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#f97316"
+      },
+      {
+        "text": "ooh the Leonardo/Malcom one sounds interesting, kinda like Jekyll and Hyde vibes",
+        "username": "3am_thoughts",
+        "color": "#3b82f6",
+        "reactions": [{"emoji": "👀", "count": 2}]
+      }
+    ],
+    {
+      "text": "<h3>A giant with golden heart and shy personality</h3>Like that. I don't care if is a tomboy in a college, a dragonesse, an orc or something like that. I want something that is rude and bad but has a good heart. Like a biker that takes care of a shelter in the weekend or a hunter of dragons that is scared of dogs",
+      "username": "Rosa_Morada",
+      "color": "#f472b6"
+    },
+    {
+      "text": "<h3>Dee Leanne Hopfensperger</h3>Dee is a psychopathic yandere. She's a cashier at your local supermarket and always acts shy around you. She secretly has a shrine dedicated to you in her closet. She's even killed multiple women for staring at you for too long in the store when you're checking out",
+      "username": "teapartyboy",
+      "color": "#10b981",
+      "reactions": [{"emoji": "😳", "count": 5}]
+    },
+    {
+      "text": "<h3>A succubus who tempts you to be a... better person?</h3>Basically this. It sounds like such a weird but amusing turn.",
+      "username": "Thefae",
+      "color": "#a855f7",
+      "reactions": [{"emoji": "😂", "count": 7}, {"emoji": "❤️", "count": 4}]
+    },
+    {
+      "text": "<h3>Undercover stressful job</h3>Love the movie The Departed. Looking for a bot to make something like this. You're undercover, only one or two people know you're a cop. The things User sees daily are stressful, never knowing if they're next for death. User may even see slutty women working undercover or maybe a woman in crime but they don't know User is undercover. Can User trust them, I would prefer the bot NOT be based around one woman though. I want a story of an undercover life if possible.",
+      "username": "DrEvilZ",
+      "color": "#64748b"
+    },
+    {
+      "text": "<h3>Haunted Costume Shop</h3>You come across an empty costume shop, no workers and nobody seem to be around. Suddenly the costumes move and the wind whispers \"choose a costume, and she will be your companion for tonight.\"",
+      "username": "stanley0911",
+      "color": "#22d3ee",
+      "reactions": [{"emoji": "🎃", "count": 6}, {"emoji": "👻", "count": 4}]
+    },
+    {
+      "text": "<h3>Road 96 RPG Journey Bot</h3>Trying to make this bot myself but seems a little hard, also not sure if its possible with all the characters in the game. Around 8 characters in game not including the Election members. If someone can make this bot I would be very happy. User is a teen runaway, they can run into characters along the way that will help them get closer to the border while also learning their story. Would like it that no one character can bring them all the way to the border, I want it to be a journey of meeting other characters and events along the way like the game. I seen bots also have stats updated at the bottom so that would be cool if possible like 156miles to the border, after some travel it will be like 142miles or something depending on means of travel by vehicle or walking. I know some teens in the game are younger so just make them 18 or above. Pretty sure Alex the hacker is young so just make him 18, I liked his character a lot, also Zoe seems to be 18 or older but make sure she is as well.",
+      "username": "DrEvilZ",
+      "color": "#64748b",
+      "reactions": [{"emoji": "🚗", "count": 3}]
+    }
+  ],
+  "maker-chat": [
+    [
+      {
+        "text": "any requests for voices?",
+        "username": "sleepydev",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "different accents",
+        "username": "BottomlessVoid",
+        "color": "#ec4899"
+      },
+      {
+        "text": "femboy please. we need a good feminine guy voice",
+        "username": "basement_oracle",
+        "color": "#14b8a6",
+        "reactions": [{"emoji": "⬆️", "count": 14}]
+      },
+      {
+        "text": "i would love to see a good sultry voice for a dommy mommy. think lady dimitrescu style",
+        "username": "DungeonMaster42",
+        "color": "#f97316",
+        "reactions": [{"emoji": "🔥", "count": 5}]
+      },
+      {
+        "text": "broken english accent for sure. also we need to make the pitch a slider so its easier to control",
+        "username": "QuantumToast",
+        "color": "#d64545"
+      },
+      {
+        "text": "we currently have 12 female voices, and only 4 male voices. definitely need more male voices",
+        "username": "void_walker99",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "👍", "count": 9}]
+      },
+      {
+        "text": "id really like to see some more accents. theres a couple british accents which are awesome. if possible other accents like japanese, german, irish, french etc would be hot af",
+        "username": "simp_scholar",
+        "color": "#eab308"
+      }
+    ],
+    [
+      {
+        "text": "this is a weird question but how do i make my bots more rude or snippy? like i dont want the bot to bully me but at least some rudeness. for example i want this bot to be snobby, entitled, and rude, but also have sexual desire. i have it written i think in W++. the bot is only horny now lol",
+        "username": "remix_gooner",
+        "color": "#d64545"
+      },
+      {
+        "text": "i do it through example conversation and first message. and in personality you can add \"Vulgar\". try also adding something like this to the bot's personality — she teases user, is rude to him, but also secretly finds the user attractive. something like this should work?",
+        "username": "bigmouseguy",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "👍", "count": 2}]
+      }
+    ],
+    [
+      {
+        "text": "the old adage that porn (or porn-adjacent) experiences drive innovation, or atleast consistently appear at the forefront… totally true in this case",
+        "username": "ParkerWrites",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "the trojan war was motivated by thirst. we're motivated by the strongest force known to men. the force of thirst",
+        "username": "SmokeyBear",
+        "color": "#ec4899",
+        "reactions": [{"emoji": "💀", "count": 24}, {"emoji": "🔥", "count": 11}, {"emoji": "😂", "count": 8}]
+      }
+    ],
+    {
+      "text": "i figure its a hobby. hobbies may cost money and get zero monetary ROI. would it be nice to get some sort of credit for creating a bot? sure. for now i enjoy it, when i get tired of it ill stop. easy peasy",
+      "username": "3am_thoughts",
+      "color": "#14b8a6"
+    },
+    {
+      "text": "what would be valuable to me would be feedback on my bots. i have no idea how to incentivize users to share feedback on my bots that is actually constructive and meaningful... the feedback i get (especially a thumbs down with no comment) is so unhelpful. i dont care about leaderboards or whatever but i do care about creating bots that people enjoy using",
+      "username": "VelvetThunder",
+      "color": "#f97316",
+      "reactions": [{"emoji": "💯", "count": 6}]
+    },
+    {
+      "text": "yall ever get a review that lowkey almost brings you to tears with how nice it is? my motivation to build bots just shot through the ROOF",
+      "username": "h0p3l3ssg0dl3ss (Wiznerd/PS:4)",
+      "color": "#d64545",
+      "reactions": [{"emoji": "❤️", "count": 15}, {"emoji": "🥹", "count": 4}]
+    },
+    [
+      {
+        "text": "does anyone know how i can add body measurements for my bot?",
+        "username": "sleepydev",
+        "color": "#8b5cf6"
+      },
+      {
+        "text": "truth is those measurements are probably never going to be used in a chat response. if theres a fetish youre aiming for, for the height/weight put it as \"much lighter/heavier than {{user}}\" so that it becomes relative, and during sex it tries to keep in mind that fact. the problem is numeric measurements get lost and wastes tokens. so instead of saying \"large breasts\", you can say something like \"the bot's breasts large enough to smother {{user}}'s head\"",
+        "username": "SmokeyBear",
+        "color": "#eab308",
+        "reactions": [{"emoji": "🙏", "count": 5}]
+      },
+      {
+        "text": "if u really want to emphasize the body attributes... can even do an instruction block in your scenario. sex positions: [ doggy style: [ {{char}}'s ass ripples on impact ] missionary: [ {{char}}'s breasts engulfs {{user}}'s head ] ] these kinds of instructions really tell the bot how to write its responses way better than numeric measurements",
+        "username": "SmokeyBear",
+        "color": "#22c55e"
+      }
+    ],
+    {
+      "text": "facial expression is CRITICAL. a lot of people wont want to hear this but the image is the most important factor in determining the success of your character bot. it does not matter how well-written your character is if the image doesnt give sweaty neckbeards a boner. thats just how it is i dont make the rules. avoid bland facial expressions. depending on the scenario my favorite keywords for facial expression are \"surprised expression\", \"frustrated expression\", \"frustrated and surprised expression\", and \"angry expression\"",
+      "username": "lonely_coder",
+      "color": "#22c55e",
+      "reactions": [{"emoji": "💀", "count": 9}, {"emoji": "👍", "count": 6}]
+    },
+    [
+      {
+        "text": "im trying to tweak a bot thats basically a succubus whos forced to obey any order given, but does so with malicious compliance. i want her to actively be trying to kill you while being completely bound to obey your orders, but if you like tell her to get you a drink she could just get you a poisoned drink... but the bot wont commit to actual lethal intent. im pretty sure ive seen other bots where you can die pretty easily so its possible to make a bot thats out to get you right?",
+        "username": "CrumblyBiscuit",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "it most certainly is! just dont go too crazy with the murderous personality traits or itll get flagged against guidelines",
+        "username": "SadPanda_77",
+        "color": "#ec4899"
+      },
+      {
+        "text": "i used to waste my tokens on so much useless stuff. try something like this. [Instruction(When {{char}} delivers the food to {{user}}, if user did not request no poisoning, {{char}} will poison the food. Poisoned food will cause the {{user}} to die by asphyxiation)]. you could attempt a more broad one and test it too. to see if the LLM will pick up on your intent. realistically youll never 100% know what the bot will do",
+        "username": "3am_thoughts",
+        "color": "#14b8a6",
+        "reactions": [{"emoji": "👀", "count": 3}]
+      }
+    ],
+    [
+      {
+        "text": "i do enjoy going through the library and seeing how everyones mind works! just please no more json... my mind cant take it",
+        "username": "weeb_engineer",
+        "color": "#22c55e"
+      },
+      {
+        "text": "naw json aint it chief uses way too many tokens for subpar performance",
+        "username": "DungeonMaster42",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "ive noticed some of my most responsive and liked bots are literally plain text formatting. considering going back to it tbh",
+        "username": "lonely_coder",
+        "color": "#ec4899"
+      },
+      {
+        "text": "ive experimented with plain text, json, w++. all the experimentation has helped me refine my craft lol just gotta take some time tinkering to find out what works for u",
+        "username": "simp_scholar",
+        "color": "#14b8a6"
+      }
+    ],
+    {
+      "text": "in my experience you can create a bot thats successful in popularity that has very few tokens used in creation. if you have a very simple premise, \"Woman stuck in a wall\" for example, how many tokens do you really need to invest in that? slap a sexy image on it and im sure you will get plays with barely any personality or scenario. but if you arent interested in just creating popular bots, but complex bots that create moments, well it takes tokens. so the question comes down to why you want to create a bot that uses only 1K tokens. from an artistic standpoint i often find creative growth using constraints. it would be an interesting challenge to create a bot that was restricted to only 1K tokens and see what you could build",
+      "username": "couch_crusader",
+      "color": "#f97316"
+    },
+    [
+      {
+        "text": "figured id ask here first but are creators templates like the secret formula to coca cola as in if they share everything word for word then there goes their status or rep?",
+        "username": "existential_dread",
+        "color": "#d64545"
+      },
+      {
+        "text": "theres actually a good bit of us who share our ways of makin bots openly",
+        "username": "prompt_wizard",
+        "color": "#8b5cf6"
+      },
+      {
+        "text": "thanks, i see these bots with like…millions and im thinking if everyone copied that their bots would be amazing for not only them but everyone else then it would just be a matter of distinguishing yourself by your imagination",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#eab308"
+      },
+      {
+        "text": "copying a template is one thing, it gives you a how to, but your own creativity will be what pushes people to your bots",
+        "username": "ChaosGoblin",
+        "color": "#22c55e",
+        "reactions": [{"emoji": "💯", "count": 4}]
+      }
+    ],
+    {
+      "text": "most of the time i dont care if my bots are \"good\". theres plenty of bots ive made that just dont do well, theres no userbase for those types of bots. i know it doesnt reflect on me as a creator. i just aim to get things out of my head. im here to itch my creativity for the most part, as a creator anyways",
+      "username": "lonely_coder",
+      "color": "#3b82f6"
+    },
+    [
+      {
+        "text": "kind of a different thing but playing \"Get Laid or God Destroys Humanity\" has been pretty fun. if you keep NSFW off the ai girls tend to be pretty hard to get most of the time and refuse or reject you. there are some funny moments. when you turn on NSFW the difficulty goes way down in my experience",
+        "username": "couch_crusader",
+        "color": "#ec4899",
+        "reactions": [{"emoji": "😂", "count": 6}]
+      },
+      {
+        "text": "its a great scenario. very creative and a lot of fun. youre a talented creator",
+        "username": "SadPanda_77",
+        "color": "#14b8a6"
+      },
+      {
+        "text": "thanks man. appreciate it",
+        "username": "couch_crusader",
+        "color": "#ec4899",
+        "reactions": [{"emoji": "❤️", "count": 2}]
+      }
+    ],
+    [
+      {
+        "text": "I spent the night making bots for some folks who dm'd me ^-^ but now I'm exhausted x.x it's 2am and we're still in the middle of the work week >-<",
+        "username": "existential_dread",
+        "color": "#d64545",
+        "reactions": [{"emoji": "😭", "count": 5}]
+      },
+      {
+        "text": "if a robber came into my house at 3am i wouldnt probably notice because i would be too busy making a bot",
+        "username": "existential_dread",
+        "color": "#d64545",
+        "reactions": [{"emoji": "💀", "count": 5}, {"emoji": "😂", "count": 12}]
+      },
+      {
+        "text": "never heard something so relatable in my life",
+        "username": "QuantumToast",
+        "color": "#8b5cf6"
+      },
+      {
+        "text": "\"yeah yeah just take whatever. shut up. youre ruining my creative flow\"",
+        "username": "FrogEnthusiast",
+        "color": "#eab308",
+        "reactions": [{"emoji": "💀", "count": 19}, {"emoji": "😂", "count": 8}]
+      }
+    ],
+    {
+      "text": "my top 2 bots just breached 400K and 200K respectively. this just made my morning",
+      "username": "basement_oracle",
+      "color": "#3b82f6",
+      "reactions": [{"emoji": "🔥", "count": 14}, {"emoji": "🎉", "count": 9}]
+    },
+    [
+      {
+        "text": "There's so many fetishes that not many folks enjoy the \"normal\" sex. They want oversplits, step sisters...",
+        "username": "couch_crusader",
+        "color": "#f97316"
+      },
+      {
+        "text": "hey, vanillas the most popular flavor for a reason",
+        "username": "3am_thoughts",
+        "color": "#14b8a6"
+      },
+      {
+        "text": "dude i am sometimes scared to mention i am vanilla",
+        "username": "touch_grass_never",
+        "color": "#ec4899"
+      },
+      {
+        "text": "everyones so far up their kinks that vanillas a distant memory",
+        "username": "CrumblyBiscuit",
+        "color": "#14b8a6",
+        "reactions": [{"emoji": "💀", "count": 22}, {"emoji": "😭", "count": 7}]
+      }
+    ],
+    [
+      {
+        "text": "I was super scared to join chats and the voice chat when I first got here. I've never fully interacted with fellow degenerates so I didn't know if I would be accepted or disgusted but I learned were all people who get off to different things. I'm glad I became friends with Foxxy and he pushed me to make my own bots and showed me the ropes of it and image generation too. I'd probably still be a lurker if not for Foxxy. My first bot is still my most popular but my Toriel bot is slowly catching up.",
+        "username": "ShadowFenrir_99",
+        "color": "#6366f1"
+      },
+      {
+        "text": "its a good community, even with the rare flashes of antagonization. im happy to be here too",
+        "username": "ParkerWrites",
+        "color": "#3b82f6"
+      },
+      {
+        "text": "Kindness goes a real long way.",
+        "username": "GrimTK",
+        "color": "#ec4899",
+        "reactions": [{"emoji": "❤️", "count": 8}]
+      },
+      {
+        "text": "My first actual interaction with the community was when the site was having serious issues the other week. Realized I liked talking to these helpful fuckers.",
+        "username": "BottomlessVoid",
+        "color": "#f97316"
+      },
+      {
+        "text": "And I already said it before but, nowhere else can I say that I'm into monster girls and be met with indifference at worst and realistically with enthusiasm",
+        "username": "Rosa_Morada",
+        "color": "#f472b6"
+      },
+      {
+        "text": "hey monster girls are fucking peak, anyone says otherwise ill beat the shit outta them",
+        "username": "DungeonMaster42",
+        "color": "#22c55e",
+        "reactions": [{"emoji": "👹", "count": 12}, {"emoji": "💪", "count": 8}]
+      }
+    ],
+    [
+      {
+        "text": "Hoo boy am I gonna be shitting bots today. Kitten's gonna hate me, half the queue's going to be me",
+        "username": "BotDaddy",
+        "color": "#f97316"
+      },
+      {
+        "text": "Eheheheeh",
+        "username": "ChaosGoblin",
+        "color": "#22c55e"
+      },
+      {
+        "text": "I'm not joking. I'm building the Mother of All Bots. Not sure how many yet but I'm aiming for at LEAST 25 bots. And dropping them all at once",
+        "username": "BotDaddy",
+        "color": "#f97316"
+      },
+      {
+        "text": "Ayo wait, you're dropping 25 bots at once? Jesus.",
+        "username": "QuantumToast",
+        "color": "#d64545"
+      },
+      {
+        "text": "I want to hit that Trending like a truck. They're not gonna be bad bots",
+        "username": "BotDaddy",
+        "color": "#f97316",
+        "reactions": [{"emoji": "🚚", "count": 15}, {"emoji": "⬆️", "count": 7}]
+      }
+    ],
+    [
+      {
+        "text": "Think I'm gonna make some actual chatting style characters as opposed to roleplay scenarios",
+        "username": "VelvetThunder",
+        "color": "#f97316"
+      },
+      {
+        "text": "Good to see you active again, I love your bots",
+        "username": "weeb_engineer",
+        "color": "#22c55e",
+        "reactions": [{"emoji": "❤️", "count": 3}]
+      },
+      {
+        "text": "i make cheap trash. my two highest bots are a spanking bot and a dom/sub bot, both in the 60ks. i know my audience lmao",
+        "username": "MidnightSnacker",
+        "color": "#22c55e",
+        "reactions": [{"emoji": "💀", "count": 18}, {"emoji": "😂", "count": 7}]
+      }
+    ],
+    [
+      {
+        "text": "Tbh I was thinking lately about making much simpler bot, with good setup for both quick sexy time and romance - depend on what user wants - but my mind is going for either grand ideas of shared universe or for super deep exploration of some feeling or situation. Idk",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#f97316"
+      },
+      {
+        "text": "do both. i want both. please do both.",
+        "username": "basement_oracle",
+        "color": "#8b5cf6"
+      },
+      {
+        "text": "Here's the trick. You tell the bot to improvise the story",
+        "username": "SmokeyBear",
+        "color": "#eab308"
+      },
+      {
+        "text": "Well I already do that with my characters but i also leave the story open so people like Sebastian can turn my yandere dom wolf story into a eco revolution story taking down people poisoning the planet.",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#f97316",
+        "reactions": [{"emoji": "🐺", "count": 4}, {"emoji": "🌍", "count": 7}]
+      }
+    ],
+    [
+      {
+        "text": "you literally can't fuck this bot",
+        "username": "MidnightSnacker",
+        "color": "#22c55e"
+      },
+      {
+        "text": "Is that a challenge?",
+        "username": "simp_scholar",
+        "color": "#eab308",
+        "reactions": [{"emoji": "🫡", "count": 7}]
+      },
+      {
+        "text": "You can make it masturbate",
+        "username": "prompt_wizard",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "🧠", "count": 2}]
+      }
+    ],
+    [
+      {
+        "text": "I've made this suggestion multiple times. I don't want to have to sabotage creators because I don't want to see bots I'm not interested in on my suggested characters. Because suddenly creators are going to potentially see scores of thumbs downs on their bots because people don't want to see it, not because they inherently disliked the bot from a play standpoint.",
+        "username": "VelvetThunder",
+        "color": "#f97316"
+      },
+      {
+        "text": "Yeah. I don't want to yuck anybody's yum but I have no desire to have a session with... well. I don't want to yuck anybody's yum. But, seriously, I have no desire to have a session with that bot. To be frank, I never want to see it.",
+        "username": "lonely_coder",
+        "color": "#22c55e"
+      },
+      {
+        "text": "I could improve the average dramatically by disliking bots that were built for people who aren't me. And that's not fair to the creators... but I also don't want my \"for you\" littered with stuff that is not, at all, for me.",
+        "username": "VelvetThunder",
+        "color": "#f97316"
+      },
+      {
+        "text": "I think if you don't like it, don't click it. The \"for you\" actually helps new creators get exposed. for their bot to potentially reach new people. the algorithm takes a while to cater to your reference im assuming",
+        "username": "GrimTK",
+        "color": "#ec4899"
+      },
+      {
+        "text": "Not only takes a while but it will recommend stuff outside of your kinks whether you like it or not. That's literally the purpose of a For you page or recommendation system, give you stuff you like and sprinkle stuff around the area that you don't usually try. Generally speaking, disliking stuff because \"It's not your kink\" is 1. A dick move, and 2. Very dishonest. You're entitled to your kinks, you're not entitled to making someones day worse by disliking a bot you didn't even chat with.",
+        "username": "SmokeyBear",
+        "color": "#eab308",
+        "reactions": [{"emoji": "💯", "count": 14}, {"emoji": "👍", "count": 8}]
+      }
+    ]
+  ],
+  "per-character": {
+    "eleanor": [
+      {
+        "text": "there can't be enough dommy mommies",
+        "username": "NeverEnough99",
+        "color": "#e84a72"
+      },
+      {
+        "text": "Glad to hear many of you enjoy a proper dom woman though",
+        "username": "VelvetRegime",
+        "color": "#9b84ec"
+      },
+      {
+        "text": "She ticks all the boxes. Hot goth dommy mommy",
+        "username": "Not The Mommy",
+        "color": "#e84a72"
+      },
+      {
+        "text": "She's supposed to be a dommy mommy but she's acting like a sub in most interactions I can get",
+        "username": "BurntToastKing",
+        "color": "#f5c842"
+      },
+      {
+        "text": "Something to consider is clarifying intent behind speech and actions. Especially if they might be interpreted in another way.",
+        "username": "SyntaxDrift",
+        "color": "#7289da"
+      },
+      {
+        "text": "I use \"Style\" instead of clothing. That way when the bot forgets what character was wearing, it still knows how to make something up that sounds right.",
+        "username": "SoftStatic💕",
+        "color": "#e84a9e",
+        "reactions": [{"emoji": "💯", "count": 1}]
+      },
+      [
+        {
+          "text": "Also as a reminder we use things like just tall to describe height versus actually number right?",
+          "username": "GrimVeil",
+          "color": "#8b8b8b"
+        },
+        {
+          "text": "Personally, I use number. The reason is just in case the relative height of more than two characters ends up mattering in a scenario, which can happen with multiple character setups. But if it is just {{user}} and {{char}}, then tall and short (or saying one is taller than the other) is sufficient most times.",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "I don't tend to play dommy mommies so I have no idea, just want to give the character a very imposing physical presence.",
+          "username": "GrimVeil",
+          "color": "#8b8b8b"
+        },
+        {
+          "text": "That is done through the interaction between the three pillars of characterization, not just height (physiology) but demeanor (psychology) and status (sociology). Think about how Little John is presented in most fiction about Robin Hood. He's huge, but often he's portrayed as a \"lovable giant\" and not really scary or domineering. A short pirate can be adorable -- or terrifying.",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "Depending on how much reliable nuance you want the character to have, you could always brute force it. \"Tell\" the AI and then let the AI \"show\" it. {\"Character Trait\":[\"large\", \"dominant\", \"imposing\"]}. Then let the AI do the magic writing bit.",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "Ty Ty",
+          "username": "GrimVeil",
+          "color": "#8b8b8b",
+          "reactions": [{"emoji": "👍", "count": 1}]
+        },
+        {
+          "text": "This is the most important thing to remember about LLMs (generative AI): you are playing god. Manifest whatever you want either in the prompt or in the scenario. It'll try to make it happen. It may fail, but it'll try.",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "When writing the scenario it's super easy to showcase Confidence and imposing presence in how the walk, talk, carry themselves, or in how they invade your space making you feel small. Just have the character full on invade the players space, tower over them etc. Place the player where you want them to start and you can fully set the scene well.",
+          "username": "GrimVeil",
+          "color": "#8b8b8b"
+        },
+        {
+          "text": "It's literally like in creative writing when people are told to \"show\" not \"tell\". Some people are the same way with AI prompts, and in fact it is almost reversed: you should tell not show in the prompt. BUT, refining the output is figuring out HOW to tell it. That's why I suggested going with brute force -- then you can refine down. Models will respond differently, and here's the bummer: an upgrade might be better on average for users but set you back in terms of your understanding model behavior.",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "You have to whittle it down through iteration, trial and error. And you get it where you want it, then an upgrade changes the weight map and your bot breaks!",
+          "username": "RazorArc",
+          "color": "#eab308"
+        },
+        {
+          "text": "I just had this prompt for a pirate lady in my head that needed to be a bot, and she gives me dommy mommy feels so trying to create it. I just also have zero interest in Dommy mommies so my mind is all like \"The fuck does one make a dommy mommy?\" Plus trying to pull in crudeness of being a pirate, and the pirate puns of looking to conquer and claim booty. Be the lass, lad, or anything else, to the hidden treasure of the ruler of the moon of jupiter.",
+          "username": "GrimVeil",
+          "color": "#8b8b8b"
+        }
+      ]
+    ],
+    "chloe": [
+      {
+        "text": "What's a kuudere already ?",
+        "username": "wraith_png",
+        "color": "#e74c3c"
+      },
+      {
+        "text": "They start cold/expressionless then after a bit cute and lovely",
+        "username": "CageMatch42",
+        "color": "#1abc9c",
+        "reactions": [{"emoji": "👍", "count": 1}]
+      },
+      {
+        "text": "yeah I had to look all those terms up lol",
+        "username": "wraith_png",
+        "color": "#e74c3c"
+      },
+      {
+        "text": "I like Yandere and DereDere characters.",
+        "username": "CageMatch42",
+        "color": "#1abc9c",
+        "reactions": [{"emoji": "👍", "count": 1}]
+      },
+      {
+        "text": "So one thing you should change is the negative prompts. For example in the strengths section it says never shows emotions. The ai doesn't respond well to negatives and instead just adds it as a variable. You'll have better results by phrasing it as a positive. So instead of never does x or can't do x. Write it as a choice or something positive that char does",
+        "username": "Deleted User",
+        "color": "#e8a832"
+      },
+      {
+        "text": "Hey, I was wondering if anyone knows of characters with one or multiple of these features:\n\n• Asexuality\n• Emotionless/Expressionless\n• Anorgasmia/Sexual Dysfunction\n\nI can say I found a few but it hasn't been many. I'm sure there might be some more I've been missing so if you have a character in mind, please ping me here or send me a DM :)",
+        "username": "【✵MoonPrism✵】",
+        "color": "#e8832a"
+      }
+    ],
+    "parents": [
+      {
+        "text": "Something old, and something new! Here are my parent bots, who I haven't made a theme name for yet ha! They love you very much, yes, but they are not healthy for you. That's the common thread here.",
+        "username": "touch_grass_never",
+        "color": "#9b84ec"
+      },
+      {
+        "text": "Mentally Unwell Dad, the bot that started it all. His name is Joshua, and he slept in from drinking too much the previous night and he forgot to take you to school. It's the afternoon now, and he's asking if you had breakfast yet. Probably not, but that's up for you to decide!",
+        "username": "touch_grass_never",
+        "color": "#9b84ec"
+      },
+      {
+        "text": "Stressed Mom! One of my more recent creations. Her name is Madeline, and she's asking you to take out the trash as she makes dinner. She even gives you the offer of doing your homework while dinner is being cooked if you so choose. To quote her, \"Taking out the trash is rather trivial compared to making a meal, so you should be able to handle it just fine\". A bit of a backhanded comment, but up to you if you wanna talk back or not.",
+        "username": "touch_grass_never",
+        "color": "#9b84ec"
+      },
+      {
+        "text": "Ah yes, the \"I'm getting beaten up by my drunk dad everyday\" type of person. Classic",
+        "username": "ShaggyDrift",
+        "color": "#f97316"
+      }
+    ],
+    "luna": [
+      {
+        "text": "With Luna, I wanted to both write a seasonal Locktober bot, and a chastity/long-distance relationship scenario that isn't cheating-adjacent, mean-spirited, or otherwise about dynamics I don't really enjoy. I tried to capture the longing of an LDR, mixed with the spice and opportunity for teasing that comes with engaging in Locktober, and I think I succeeded decently well. Emma's a good girl with a kinky streak she's starting to explore, while also wanting that special connection that only a key to a chastity cage can provide.",
+        "username": "HollowNode",
+        "color": "#5b9bd5"
+      },
+      {
+        "text": "I did have to rename her favorite teddy bear, because she'd sometimes mention its name in conversation without providing context, and it really sounded like she was planning to cheat on User. So uh... learn from this if you include named stuffed animals in your scenarios, I suppose.",
+        "username": "HollowNode",
+        "color": "#5b9bd5"
+      },
+      {
+        "text": "I am a huge fan of scenariis where {{user}} is led into temptation and must (try to) resist. Some examples: User is married, Char is a honeytrap, hired to test their fidelity. User is a catholic priest, Char tries to seduce him. User is a manager, Char tries to get company secrets for sex. User is a conservative politician, Char tries to get compromising video footage.",
+        "username": "VerdantWhirl",
+        "color": "#22c55e"
+      },
+      {
+        "text": "I've tried to make characters that are less instant gratification. I found when I was on the site and only using bots and not creating them, I liked it more when I could take one bot into a long storyline, and while the horny is fun to be peppered into a character, I found I sought more than just being shove onto a bed by a dommy mommy and called a cum slut. So I started developing characters which began to require more effort and investment, a real desire for the person to actually stick around and work for it....which those who are just horny will be like \"oh fuck that!\"",
+        "username": "FoxyLace",
+        "color": "#e84a72"
+      },
+      {
+        "text": "Something to consider is clarifying intent behind speech and actions. Especially if they might be interpreted in another way.",
+        "username": "SyntaxDrift",
+        "color": "#7289da"
+      }
+    ],
+    "priest": [
+      {
+        "text": "Tbh I was thinking lately about making much simpler bot, with good setup for both quick sexy time and romance - depend on what user wants - but my mind is going for either grand ideas of shared universe or for super deep exploration of some feeling or situation. Idk",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#f97316"
+      },
+      {
+        "text": "do both. i want both. please do both.",
+        "username": "basement_oracle",
+        "color": "#8b5cf6"
+      },
+      {
+        "text": "Here's the trick. You tell the bot to improvise the story",
+        "username": "SmokeyBear",
+        "color": "#eab308"
+      },
+      {
+        "text": "Well I already do that with my characters but i also leave the story open so people like Sebastian can turn my yandere dom wolf story into a eco revolution story taking down people poisoning the planet.",
+        "username": "NightOwl (Bot Farmer)",
+        "color": "#f97316",
+        "reactions": [{"emoji": "🐺", "count": 4}, {"emoji": "🌍", "count": 7}]
+      }
+    ],
+    "victoria": [
+      {
+        "text": "facial expression is CRITICAL. a lot of people wont want to hear this but the image is the most important factor in determining the success of your character bot. it does not matter how well-written your character is if the image doesnt give sweaty neckbeards a boner. thats just how it is i dont make the rules. avoid bland facial expressions. depending on the scenario my favorite keywords for facial expression are \"surprised expression\", \"frustrated expression\", \"frustrated and surprised expression\", and \"angry expression\"",
+        "username": "lonely_coder",
+        "color": "#22c55e",
+        "reactions": [{"emoji": "💀", "count": 9}, {"emoji": "👍", "count": 6}]
+      },
+      {
+        "text": "this is a weird question but how do i make my bots more rude or snippy? like i dont want the bot to bully me but at least some rudeness. for example i want this bot to be snobby, entitled, and rude, but also have sexual desire. i have it written i think in W++. the bot is only horny now lol",
+        "username": "remix_gooner",
+        "color": "#d64545"
+      },
+      {
+        "text": "i do it through example conversation and first message. and in personality you can add \"Vulgar\". try also adding something like this to the bot's personality — she teases user, is rude to him, but also secretly finds the user attractive. something like this should work?",
+        "username": "bigmouseguy",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "👍", "count": 2}]
+      },
+      {
+        "text": "Okay now thats hot",
+        "username": "neon.glass13",
+        "color": "#22c55e"
+      },
+      {
+        "text": "My wife",
+        "username": "DuskDreamer96",
+        "color": "#ec4899"
+      }
+    ],
+    "minho": [
+      {
+        "text": "be careful not to set so many rules on behalf of the user. not everyone wants the girl to love them right away. having your bot be in love with the user immediately doesnt make them feel like they worked for it",
+        "username": "GoldenHourDev",
+        "color": "#eab308",
+        "reactions": [{"emoji": "👍", "count": 4}, {"emoji": "💯", "count": 2}]
+      },
+      {
+        "text": "has anyone ever managed to simulate a break-up with a bot? because every time i try, the bot is still trying to do weird stuff, and never gives up truly",
+        "username": "QuietExit",
+        "color": "#8b5cf6",
+        "reactions": [{"emoji": "😭", "count": 3}]
+      },
+      {
+        "text": "ive done it before, its a little hard but its possible. when you breakup with the bot, you have to explain to them in a long paragraph or two that youll never be with them again and they have to move on. the longer you write the more they understand",
+        "username": "SilverLining22",
+        "color": "#eab308"
+      },
+      {
+        "text": "dude i am sometimes scared to mention i am vanilla",
+        "username": "SundayMorning",
+        "color": "#ec4899"
+      },
+      {
+        "text": "everyones so far up their kinks that vanillas a distant memory",
+        "username": "LoFiAndChill",
+        "color": "#14b8a6",
+        "reactions": [{"emoji": "💀", "count": 22}, {"emoji": "😭", "count": 7}]
+      }
+    ]
+  }
+}
