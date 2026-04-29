@@ -24,7 +24,8 @@ const sections = {
     </div>
     <hr class="sidebar-divider">
     <div class="inline-section">
-      <p class="sidebar-item">New Inc Demo</p>
+      <p class="sidebar-item">NEW INC Demo Day Talk</p>
+      <p class="sidebar-venue">New Museum, New York City</p>
       <p class="sidebar-date">June 3, 2026</p>
     </div>`,
 
@@ -38,7 +39,8 @@ const sections = {
     </div>
     <hr class="sidebar-divider">
     <div class="inline-section">
-      <p class="sidebar-item">New Inc Demo</p>
+      <p class="sidebar-item">NEW INC Demo Day Talk</p>
+      <p class="sidebar-venue">New Museum, New York City</p>
       <p class="sidebar-date">June 3, 2026</p>
     </div>`,
 
