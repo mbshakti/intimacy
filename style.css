@@ -241,8 +241,8 @@ body {
 }
 .sidebar-divider {
   border: none;
-  border-top: 1px solid var(--border);
-  margin: 4px 0;
+  border-top: 1px dashed var(--border);
+  margin: 8px 0;
 }
 .sidebar-divider-text {
   color: var(--border);
