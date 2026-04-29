@@ -39,9 +39,9 @@ const sections = {
       <div class="credit-row"><span class="panel-label">Created by</span><span>Shakti Mb</span></div>
       <div class="credit-row"><span class="panel-label">Visual Direction</span><span>Kiana Fernandez</span></div>
       <div class="credit-row"><span class="panel-label">Created during</span><span>Rhizome + Mozilla Counterstructural Commons Residency, 2026</span></div>
-      <div class="credit-row"><span class="panel-label">Fellow residents ♥ </span><span>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken</span></div>
+      <div class="credit-row"><span class="panel-label">Fellow residents ♥ </span><span>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
       <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Mozilla, NEW INC, and Emergent Ventures</span></div>
-      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Tara Kelton, Delta, Léo Serriere, Liv Acuña, Michael Connor, Ruth Gebreyesus, Umber Majeed, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Kalyani Prasad, Jordan Cooper, Lauren Wong Lee, Yuting Duan</span></div>
+      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Jordan Cooper, Tara Kelton, Delta, Liv Acuña, Michael Connor, Ruth Gebreyesus, Umber Majeed, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Albert Sheu, Serai Yan</span></div>
     </div>`,
 
   contact: `
