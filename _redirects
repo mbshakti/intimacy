@@ -1,2 +1,3 @@
-/archive    /desktop-voyeur/    200
+/archive    /archive/           301
+/archive/   /desktop-voyeur/    200
 /archive/*  /desktop-voyeur/:splat  200
