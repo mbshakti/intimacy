@@ -1,0 +1,73 @@
+{
+  "intro": {
+    "chris-waifus":     { "label": "Chris, AI researcher",            "meta": null },
+    "2023-07-14":       { "label": "My diary",                        "meta": null },
+    "priest":           { "label": "judgemental_priest.json",        "meta": "706 tokens" },
+    "msg-maker-chat-0": { "label": "any requests for voices?",       "meta": "7 messages" },
+    "msg-intro-0":      { "label": "would you be up for a quick chat?", "meta": "Reddit DM" }
+  },
+
+  "delta": {
+    "delta-first-interaction": { "label": "Delta, ex-bot maker",              "meta": null },
+    "delta-ai-weird":          { "label": "Delta, ex-bot maker",              "meta": null },
+    "delta-characters-head":   { "label": "Delta, ex-bot maker",              "meta": null },
+    "delta-fascinated":        { "label": "Delta, ex-bot maker",              "meta": null },
+    "delta-psychology":        { "label": "Delta, ex-bot maker",              "meta": null },
+    "delta-guide-pdf":         { "label": "Delta's Character Creation Guide","meta": "PDF" }
+  },
+
+  "community": {
+    "msg-community-9":  { "label": "persona design", "meta": "3 messages" },
+    "msg-community-10": { "label": "dropping bots", "meta": "4 messages" },
+    "msg-community-11": { "label": "philosophy on hobbies", "meta": "1 message" },
+    "creator-guides":   { "label": "Creator Guides",   "meta": "7 items" },
+    "msg-community-0":  { "label": "considered a loser if you still live with your parents?", "meta": "8 messages" },
+    "msg-community-1":  { "label": "we were made to die inside tribes, not cubicles",          "meta": "1 message" },
+    "msg-community-2":  { "label": "does living it out online make it better or worse?",       "meta": "1 message" },
+    "msg-community-3":  { "label": "can you keep the fantasy and the reality separate?",       "meta": "1 message" },
+    "msg-community-4":  { "label": "filling the void?",                                        "meta": "3 messages" },
+    "msg-community-5":  { "label": "how do I make the bot not write an entire essay?",         "meta": "2 messages" },
+    "msg-community-6":  { "label": "does your Waluigi bot need a lorebook?",                   "meta": "3 messages" },
+    "msg-community-7":  { "label": "do models get confused when user and character share a name?", "meta": "3 messages" },
+    "msg-community-8":  { "label": "what if your lorebook keyword has two meanings?",          "meta": "2 messages" },
+    "seeking-a-bodyguard": { "label": "Seeking a bodyguard",      "meta": "lore.goblin" },
+    "kimono-furry":        { "label": "pinned to the floor",      "meta": "goblin.hours" },
+    "milf-muffet":         { "label": "Milf Muffet",              "meta": "delulu.exe" },
+    "road-96":             { "label": "Road 96 RPG",              "meta": "chronically.online" },
+    "saladful-robots":     { "label": "robot werewolf problem",   "meta": "goblin.hours" }
+  },
+
+  "craft": {
+    "msg-craft-0":  { "label": "welcome to bot dementia",              "meta": "3 messages" },
+    "msg-craft-1":  { "label": "how do you test without roleplaying the whole thing?", "meta": "2 messages" },
+    "msg-craft-2":  { "label": "not everyone wants the girl to love them right away?", "meta": "1 message" },
+    "msg-craft-3":  { "label": "too many tokens for subpar performance?",              "meta": "4 messages" },
+    "msg-craft-4":  { "label": "has anyone managed to simulate a breakup?",            "meta": "2 messages" },
+    "msg-craft-5":  { "label": "how do i add body measurements?",                      "meta": "2 messages" },
+    "delta-mbti-enneagram":    { "label": "Delta, ex-bot maker", "meta": null },
+    "personality-frameworks":  { "label": "personality frameworks",    "meta": "3 items" },
+    "character-jsons":         { "label": "character jsons",           "meta": "7 items" },
+    "delta-yandere-anon":      { "label": "Delta, ex-bot maker",              "meta": null },
+    "nadia":       { "label": "My diary",                                "meta": null },
+    "msg-craft-8":  { "label": "someone turned it into an eco revolution", "meta": "2 messages" },
+    "msg-craft-10": { "label": "is there a fix for bots stuck in a loop?",  "meta": "8 messages" }
+  },
+
+  "user": {
+    "group-chat":   { "label": "bot group chat",                            "meta": "8 members" },
+    "msg-user-0":   { "label": "filling the void",      "meta": "3 messages" },
+    "msg-user-2":   { "label": "does living it out online make it better or worse?", "meta": "1 message" },
+    "delta-regenerate": { "label": "Delta, ex-bot maker",                "meta": null },
+    "delta-ghost":      { "label": "Delta, ex-bot maker",                "meta": null }
+  },
+
+  "margins": {
+    "msg-margins-1":  { "label": "motivated by the strongest force known to men?", "meta": "3 messages" },
+    "the-end":        { "label": "My diary",                          "meta": null },
+    "chris-black-box":{ "label": "Chris, AI researcher",                    "meta": null },
+    "msg-margins-0":  { "label": "not designed to grow up this lonely",        "meta": "1 message" },
+    "msg-craft-7":    { "label": "i just aim to get things out of my head",    "meta": "1 message" },
+    "msg-craft-9":    { "label": "nowhere else can i say this",                "meta": "2 messages" },
+    "msg-user-1":     { "label": "real women have more than 8k of memory",    "meta": "1 message" }
+  }
+}

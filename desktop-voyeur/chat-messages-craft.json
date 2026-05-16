@@ -1,0 +1,50 @@
+[
+  [
+    { "text": "hey guys. ive created a nice bot but after a few hundred lines she gives very small and repetitive answers. what do i do?", "username": "antihell", "color": "#14b8a6" },
+    { "text": "Welcome to Bot Dementia", "username": "Remix", "color": "#f97316", "reactions": [{ "emoji": "💀", "count": 12 }, { "emoji": "😂", "count": 5 }] },
+    { "text": "bot dementia happens in the hundreds. its p normal", "username": "Lunchtrey", "color": "#a855f7" }
+  ],
+  [
+    { "text": "hey all. i remember someone once mentioned a way to test specific aspects of your bots so u didnt have to roleplay up to it. anyone know what im talking about?", "username": "OakFeet (Feet squad)", "color": "#3b82f6" },
+    { "text": "Yes it was me! So when I do testing I do a few things. First, I usually drop the personality in with a shell scenario and opening line and test the personality to see if it gives me the character responses I want. I'll push it's buttons and see if it reacts the way I want. If it doesn't, I play with the personality traits until it works the way I want. Then I start to build in my scenario and refine. But I also use out of character commands to interrogate responses I don't expect. I'll ask it why is it generating a certain response or believes a certain thing... and sometimes I can get insight into why the AI is making certain choices. (I once tried to have sex with a character I was testing and she refused. The out of character commands revealed that my instruction of \"The character will have a night of passion with the user\" was interpreted as having a night of passionate talk about poetry and art, not sex). Is that what you were looking for?", "username": "GrimTK", "color": "#22c55e", "reactions": [{ "emoji": "🙏", "count": 7 }, { "emoji": "👍", "count": 3 }] }
+  ],
+  { "text": "be careful not to set so many rules on behalf of the user. not everyone wants the girl to love them right away. having your bot be in love with the user immediately doesnt make them feel like they worked for it", "username": "SmokeyBear", "color": "#eab308", "reactions": [{ "emoji": "👍", "count": 4 }, { "emoji": "💯", "count": 2 }] },
+  [
+    { "text": "i do enjoy going through the library and seeing how everyones mind works! just please no more json... my mind cant take it", "username": "weeb_engineer", "color": "#22c55e" },
+    { "text": "naw json aint it chief uses way too many tokens for subpar performance", "username": "DungeonMaster42", "color": "#f97316" },
+    { "text": "ive noticed some of my most responsive and liked bots are literally plain text formatting. considering going back to it tbh", "username": "lonely_coder", "color": "#6b7280" },
+    { "text": "ive experimented with plain text, json, w++. all the experimentation has helped me refine my craft lol just gotta take some time tinkering to find out what works for u", "username": "simp_scholar", "color": "#ec4899" }
+  ],
+  [
+    { "text": "has anyone ever managed to simulate a break-up with a bot? because every time i try, the bot is still trying to do weird stuff, and never gives up truly", "username": "basement_oracle", "color": "#14b8a6", "reactions": [{ "emoji": "😭", "count": 3 }] },
+    { "text": "ive done it before, its a little hard but its possible. when you breakup with the bot, you have to explain to them in a long paragraph or two that youll never be with them again and they have to move on. the longer you write the more they understand", "username": "CrypticFeline", "color": "#a855f7" }
+  ],
+  [
+    { "text": "does anyone know how i can add body measurements for my bot?", "username": "sleepydev", "color": "#3b82f6" },
+    { "text": "truth is those measurements are probably never going to be used in a chat response. if theres a fetish youre aiming for, for the height/weight put it as \"much lighter/heavier than {{user}}\" so that it becomes relative, and during sex it tries to keep in mind that fact. the problem is numeric measurements get lost and wastes tokens. so instead of saying \"large breasts\", you can say something like \"the bot's breasts large enough to smother {{user}}'s head\"", "username": "SmokeyBear", "color": "#eab308", "reactions": [{ "emoji": "🙏", "count": 5 }] },
+    { "text": "if u really want to emphasize the body attributes... can even do an instruction block in your scenario. sex positions: [ doggy style: [ {{char}}'s ass ripples on impact ] missionary: [ {{char}}'s breasts engulfs {{user}}'s head ] ] these kinds of instructions really tell the bot how to write its responses way better than numeric measurements", "username": "SmokeyBear", "color": "#eab308", "hidden": true }
+  ],
+  [
+    { "text": "the old adage that porn (or porn-adjacent) experiences drive innovation, or atleast consistently appear at the forefront… totally true in this case", "username": "ParkerWrites", "color": "#3b82f6" },
+    { "text": "the trojan war was motivated by thirst. we're motivated by the strongest force known to men. the force of thirst", "username": "SmokeyBear", "color": "#eab308", "reactions": [{ "emoji": "💀", "count": 24 }, { "emoji": "🔥", "count": 11 }, { "emoji": "😂", "count": 8 }] }
+  ],
+  { "text": "most of the time i dont care if my bots are \"good\". theres plenty of bots ive made that just dont do well, theres no userbase for those types of bots. i know it doesnt reflect on me as a creator. i just aim to get things out of my head. im here to itch my creativity for the most part, as a creator anyways", "username": "lonely_coder", "color": "#6b7280" },
+  [
+    { "text": "Here's the trick. You tell the bot to improvise the story", "username": "SmokeyBear", "color": "#eab308" },
+    { "text": "Well I already do that with my characters but i also leave the story open so people like Sebastian can turn my yandere dom wolf story into a eco revolution story taking down people poisoning the planet.", "username": "NightOwl (Bot Farmer)", "color": "#22c55e" }
+  ],
+  [
+    { "text": "And I already said it before but, nowhere else can I say that I'm into monster girls and be met with indifference at worst and realistically with enthusiasm", "username": "Rosa_Morada", "color": "#a855f7" },
+    { "text": "hey monster girls are fucking peak, anyone says otherwise ill beat the shit outta them", "username": "DungeonMaster42", "color": "#f97316", "reactions": [{ "emoji": "👹", "count": 12 }, { "emoji": "💪", "count": 8 }] }
+  ],
+  [
+    { "text": "Is there a fix for bots being stuck in a loop? I'm seeing the same response after 10x regenerations", "username": "Enzo", "color": "#e2e8f0" },
+    { "text": "How long is your conversation", "username": "CommonDon", "color": "#38bdf8" },
+    { "text": "~500 responses\nThe bot is also beginning to neglect the advanced memory histories of the characters", "username": "Enzo", "color": "#e2e8f0" },
+    { "text": "Thats because its running out of memory. Even on Elite it's running on fumes. You will probably need to make a new chat, and give it a summary of important events so far", "username": "CommonDon", "color": "#38bdf8" },
+    { "text": "Already? Jesus", "username": "Enzo", "color": "#e2e8f0" },
+    { "text": "\"Already\"", "username": "CommonDon", "color": "#38bdf8" },
+    { "text": "$50/month, really expected more", "username": "Enzo", "color": "#e2e8f0" },
+    { "text": "My brother in christ, 500 messages is a LOT", "username": "CommonDon", "color": "#38bdf8" }
+  ]
+]

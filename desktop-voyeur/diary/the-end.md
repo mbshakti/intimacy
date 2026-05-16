@@ -1,0 +1,1 @@
+I often return to the JSON files. In the beginning, Chris said that maybe a lot of this was happening because guys wanted AI waifus. And maybe that was partly true. But these files also reveal what humans are beginning to want from machines, what machines are beginning to mediate for us, and what worlds we long to enter.

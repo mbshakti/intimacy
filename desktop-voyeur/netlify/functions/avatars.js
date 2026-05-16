@@ -1,0 +1,30 @@
+const FILES = [
+    'img/discord%20avatars/discord-avatar-01.jpg',
+    'img/discord%20avatars/discord-avatar-02.jpg',
+    'img/discord%20avatars/discord-avatar-03.jpg',
+    'img/discord%20avatars/discord-avatar-04.jpg',
+    'img/discord%20avatars/discord-avatar-05.jpg',
+    'img/discord%20avatars/discord-avatar-06.jpg',
+    'img/discord%20avatars/discord-avatar-07.jpg',
+    'img/discord%20avatars/discord-avatar-08.jpg',
+    'img/discord%20avatars/discord-avatar-09.png',
+    'img/discord%20avatars/discord-avatar-010.png',
+    'img/discord%20avatars/discord-avatar-011.png',
+    'img/discord%20avatars/discord-avatar-012.png',
+    'img/discord%20avatars/discord-avatar-013.png',
+    'img/discord%20avatars/discord-avatar-014.png',
+    'img/discord%20avatars/discord-avatar-015.png',
+    'img/discord%20avatars/discord-avatar-016.png',
+    'img/discord%20avatars/discord-avatar-017.png',
+    'img/discord%20avatars/discord-avatar-018.png',
+    'img/discord%20avatars/discord-avatar-019.png',
+    'img/discord%20avatars/discord-avatar-020.png',
+    'img/discord%20avatars/discord-avatar-021.webp',
+    'img/discord%20avatars/discord-avatar-022.webp',
+];
+
+exports.handler = async () => ({
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(FILES),
+});
