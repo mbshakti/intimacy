@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Flaco';
+    src: url('/font/flaco/flaco-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-magenta: #FF8AF7;
+    --color-cyan:    #90F1EF;
+    --color-lime:    #EAF000;
+    --color-black:   #110B11;
+    --color-white:   #F9F8F8;
+}

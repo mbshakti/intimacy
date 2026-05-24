@@ -1,12 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #F9F8F8;
-  --black:   #110B11;
-  --magenta: #FF8AF7;
-  --lime:    #EAF000;
-  --cyan:    #90F1EF;
-  --white:   #F9F8F8;
+  --bg:      var(--color-white);
+  --black:   var(--color-black);
+  --magenta: var(--color-magenta);
+  --lime:    var(--color-lime);
+  --cyan:    var(--color-cyan);
+  --white:   var(--color-white);
   --muted:   rgba(144, 241, 239, 0.55);
   --border:  rgba(255, 138, 247, 0.2);
 }
@@ -18,11 +18,11 @@ html {
 body {
   min-height: 100%;
   background-color: var(--black);
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   color: var(--white);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 2rem 1rem;
   overflow-y: auto;
 }
@@ -36,6 +36,8 @@ body {
   line-height: 1.5;
   animation: fadeIn 0.6s ease both;
 }
+
+.widget, .widget * { font-family: Verdana, sans-serif !important; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -59,7 +61,7 @@ body {
 .widget-nav button {
   background: none;
   border: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 11px;
   color: var(--white);
   cursor: pointer;
@@ -116,7 +118,7 @@ body {
   gap: 5px;
 }
 .essay-title {
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 14px;
   line-height: 16px;
   color: var(--magenta);
@@ -180,7 +182,7 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   padding: 0;
   text-align: left;
 }
@@ -195,7 +197,7 @@ body {
   color: var(--black);
   border: none;
   padding: 7px 10px;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
@@ -275,7 +277,7 @@ body {
 .back-btn {
   background: none;
   border: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 10px;
   color: var(--muted);
   cursor: pointer;
@@ -300,7 +302,7 @@ body {
   .mobile-section-nav button {
     background: none;
     border: 1px solid var(--border);
-    font-family: Verdana, sans-serif;
+    font-family: 'Flaco', Verdana, sans-serif;
     font-size: 10px;
     color: var(--cyan);
     cursor: pointer;
@@ -403,7 +405,7 @@ body {
   background: none;
   border: none;
   border-right: 1px solid var(--border);
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 11px;
   color: var(--white);
   cursor: pointer;
@@ -428,7 +430,7 @@ body {
 .audio-play, .audio-pause {
   background: none;
   border: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 11px;
   color: var(--magenta);
   cursor: pointer;
@@ -455,6 +457,18 @@ body {
   font-size: 10.5px;
   color: var(--cyan);
 }
+.footer-archive-link {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  padding: 9px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.footer-archive-link:hover { background: rgba(255, 138, 247, 0.07); }
+.footer-archive-link:hover .footer-url-value { color: var(--magenta); }
 
 /* ── CHAT COLUMN ── */
 .col-chat {
@@ -499,12 +513,7 @@ body {
 .chat-typing {
   font-size: 10px;
   color: var(--muted);
-  animation: typePulse 0.6s ease-in-out infinite alternate;
   letter-spacing: 0.1em;
-}
-@keyframes typePulse {
-  from { opacity: 0.2; }
-  to   { opacity: 0.7; }
 }
 
 /* ─── PANELS ─── */
@@ -543,7 +552,7 @@ body {
 .panel-close button {
   background: none;
   border: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -647,7 +656,7 @@ body {
   padding: 1.2rem 0;
 }
 .screening-list li > div p {
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   font-size: 1rem;
   color: var(--white);
   line-height: 1.4;
@@ -678,7 +687,7 @@ dl > div {
   line-height: 1.6;
   border-bottom: 1px solid var(--border);
   padding: 0.9rem 0;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
 }
 dl > div .panel-label { margin-bottom: 0; }
 dl dd { color: var(--white); margin: 0; }
@@ -718,7 +727,7 @@ dl dd { color: var(--white); margin: 0; }
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   transition: opacity 0.2s;
 }
 .play-placeholder:hover { opacity: 0.65; }
@@ -730,7 +739,7 @@ dl dd { color: var(--white); margin: 0; }
   font-size: clamp(1rem, 2vw, 1.4rem);
   color: var(--magenta);
   text-decoration: none;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
   transition: opacity 0.2s;
 }
 .contact-email:hover { opacity: 0.7; }
@@ -739,7 +748,7 @@ dl dd { color: var(--white); margin: 0; }
   font-size: 0.7rem;
   color: var(--muted);
   letter-spacing: 0.08em;
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
 }
 
 /* ── PANEL FOOTER ── */
@@ -755,7 +764,7 @@ dl dd { color: var(--white); margin: 0; }
   font-size: 0.6rem;
   letter-spacing: 0.1em;
   color: rgba(200, 255, 200, 0.18);
-  font-family: Verdana, sans-serif;
+  font-family: 'Flaco', Verdana, sans-serif;
 }
 
 /* ── MOBILE ── */

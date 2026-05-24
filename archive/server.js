@@ -8,7 +8,10 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(express.static('.'));
+// Serve shared root assets (shared.css, font/, img/ etc.) from repo root
+app.use(express.static(path.join(__dirname, '..')));
+// Serve the archive explicitly at /archive so index.html is found correctly
+app.use('/archive', express.static(__dirname));
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,

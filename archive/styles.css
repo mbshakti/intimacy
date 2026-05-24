@@ -1,17 +1,10 @@
-@font-face {
-    font-family: 'Flaco';
-    src: url('font/flaco/flaco-regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
-    /* Brand palette */
-    --yellow:  #EAF000;
-    --pink:    #FF8AF7;
-    --black:   #110B11;
-    --cyan:    #90F1EF;
-    --white:   #F9F8F8;
+    /* Brand palette — raw values from shared.css */
+    --yellow:  var(--color-lime);
+    --pink:    var(--color-magenta);
+    --black:   var(--color-black);
+    --cyan:    var(--color-cyan);
+    --white:   var(--color-white);
 
     /* Semantic roles */
     --bg:           #110B11;
@@ -25,9 +18,9 @@
     --accent:       #FF8AF7;
     --accent-2:     #90F1EF;
     --accent-3:     #EAF000;
-    --font-code:    "Google Sans Code", monospace;
+    --font-code:    "IBM Plex Mono", "Google Sans Code", monospace;
     --font-ui:      'Flaco', Verdana, Geneva, sans-serif;
-    --font-lekton:  'Flaco', 'Lekton', monospace;
+    --font-lekton:  'Flaco', Verdana, sans-serif;
     --font-size:    11px;
 }
 
@@ -63,8 +56,6 @@ input, button, textarea, select {
     display: flex;
     width: 100%;
     height: 100%;
-    padding: 20px;
-    gap: 20px;
 }
 
 
@@ -78,7 +69,8 @@ input, button, textarea, select {
 
 /* === LEFT PANEL: DESKTOP === */
 .desktop {
-    flex: 2;
+    flex: 1;
+    min-width: 0;
     background: var(--bg);
     position: relative;
     border: none;
@@ -89,13 +81,78 @@ input, button, textarea, select {
 
 .desktop-canvas {
     position: relative;
-    min-height: 10100px;
-    padding-bottom: 200px;
+    overflow-x: hidden;
+}
+
+.band-grid-wrap {
+    /* outer frame via grid's own borders — no border here */
+}
+
+.band-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 400px;
+    justify-items: center;
+    border-top: 1px solid rgba(255, 138, 247, 0.42);
+    border-left: 1px solid rgba(255, 138, 247, 0.42);
+}
+
+.band-grid > * {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    border-right: 1px solid rgba(255, 138, 247, 0.42);
+    border-bottom: 1px solid rgba(255, 138, 247, 0.42);
+}
+
+.band-grid .desktop-icon .label {
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    color: var(--white);
+    max-width: 180px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 10px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.band-grid .desktop-icon:hover .label {
+    color: var(--accent);
+}
+
+.band-grid .desktop-icon .meta {
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(144, 241, 239, 0.55);
+    margin-top: 4px;
+}
+
+.voice-memo-player.vm-inline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
 }
 
 /* Desktop icons - plaintext style */
 .desktop-icon {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -330,7 +387,8 @@ input, button, textarea, select {
 /* ── shared window chrome ── */
 .window {
     background: var(--bg);
-    border-radius: 10px;
+    border-radius: 0;
+    border: 1px solid rgba(255, 138, 247, 0.42) !important;
 }
 
 /* File viewer window */
@@ -510,7 +568,7 @@ input, button, textarea, select {
 .card-comment {
     display: flex;
     gap: 10px;
-    padding-bottom: 4px;
+    padding-bottom: 10px;
 }
 .card-comment:last-child { padding-bottom: 0; }
 /* Unified avatar — used everywhere a username appears */
@@ -534,38 +592,38 @@ input, button, textarea, select {
 }
 .comment-meta {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    font-size: 16px;
-    margin-bottom: 4px;
-    font-family: var(--font-lekton);
+    gap: 6px;
+    margin-bottom: 2px;
+    font-family: 'Flaco', Verdana, sans-serif;
 }
 .comment-handle {
     color: var(--accent-2);
-    font-family: 'Andale Mono', monospace;
-    text-transform: uppercase;
-    font-size: 12px;
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 10.5px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
 }
 .comment-handle.op { color: var(--pink); }
-.comment-time { color: var(--text-3); }
+.comment-time { display: none; }
 .comment-body {
-    color: var(--text-2);
-    line-height: 1.5;
-    background: rgba(249, 248, 248, 0.06);
-    padding: 9px 13px;
-    border-radius: 14px;
-    border-top-left-radius: 4px;
-    display: inline-block;
+    color: rgba(249, 248, 248, 0.75);
+    line-height: 1.6;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    display: block;
     max-width: 100%;
     word-wrap: break-word;
     font-size: 16px;
-    font-family: var(--font-lekton);
+    font-family: 'Flaco', Verdana, sans-serif;
 }
-.comment-likes {
-    color: var(--text-3);
-    letter-spacing: 0.03em;
-}
-.comment-likes.hot { color: var(--pink); }
+.comment-likes { display: none; }
+
+/* Cycle username colors across messages */
+.card-comment:nth-child(3n+1) .comment-handle { color: var(--accent); }
+.card-comment:nth-child(3n+2) .comment-handle { color: var(--accent-2); }
+.card-comment:nth-child(3n+3) .comment-handle { color: var(--accent-3); }
 
 .reddit-card {
     width: 380px;
@@ -631,8 +689,8 @@ input, button, textarea, select {
 .voice-memo-player {
     position: fixed;
     background: #191119;
-    border-color: var(--border-strong);
-    border-radius: 18px;
+    border-color: rgba(255, 138, 247, 0.42);
+    border-radius: 0;
     padding: 8px 14px;
     display: flex;
     align-items: center;
@@ -916,12 +974,13 @@ input, button, textarea, select {
     border-color: var(--accent-2);
 }
 
-/* Window title bar — macOS style */
+/* Window title bar */
 .window-titlebar {
     display: flex;
     align-items: center;
-    padding: 16px 0;
-    background: var(--bg);
+    padding: 6px 10px;
+    background: rgba(255, 138, 247, 0.07);
+    border-bottom: 1px solid rgba(255, 138, 247, 0.2);
     flex-shrink: 0;
     position: relative;
     user-select: none;
@@ -955,8 +1014,11 @@ input, button, textarea, select {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.4px;
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 138, 247, 0.7);
     pointer-events: none;
     white-space: nowrap;
 }
@@ -1374,7 +1436,7 @@ input, button, textarea, select {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 480px;
+    width: 350px;
     max-width: 90vw;
     max-height: 100vh;
     z-index: 100;
@@ -1391,56 +1453,36 @@ input, button, textarea, select {
 .chat-float-close {
     position: fixed;
     top: 20px;
-    right: 24px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     background: none;
-    border: none;
-    color: var(--text-3);
-    font-size: 18px;
+    border: 1px solid rgba(255, 138, 247, 0.2);
+    border-radius: 0;
+    padding: 7px 14px;
+    color: var(--text-2);
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
     cursor: pointer;
     line-height: 1;
-    padding: 4px;
     transition: color 0.15s;
-    z-index: 101;
+    z-index: 9999;
+}
+
+.chat-float-close::before {
+    content: 'back to archive';
 }
 
 .chat-float-close:hover { color: var(--text); }
 
 @media (max-width: 768px) {
     .chat-float-close {
-        bottom: 32px;
-        top: auto;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--bg);
-        border: 1px solid var(--border-strong);
-        border-radius: 4px;
-        padding: 8px 12px;
-        color: var(--text-2);
-        font-family: var(--font-ui);
-        font-size: 11px;
-        letter-spacing: 0.06em;
-        text-transform: lowercase;
-        z-index: 102;
-    }
-    .chat-float-close::before {
-        content: 'back to archive';
-    }
-
-    /* Gradient fade at the bottom of any open modal so the close button reads clearly */
-    body.modal-open::after {
-        content: '';
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        top: 0;
         right: 0;
-        height: 120px;
-        background: linear-gradient(to bottom, transparent, var(--bg));
-        pointer-events: none;
-        z-index: 101;
+        z-index: 10002;
     }
 }
 
@@ -1463,7 +1505,7 @@ input, button, textarea, select {
     opacity: 1;
     transform: translateY(0);
 }
-.chat-message { margin-bottom: 20px; }
+.chat-message { margin-bottom: 14px; }
 
 /* Reactions */
 .chat-reactions {
@@ -1663,13 +1705,14 @@ input, button, textarea, select {
 
 /* === GROUP CHAT — 2000s chat room style === */
 .gc-window-title {
-    font-family: var(--font-ui);
-    font-size: 11px;
-    color: var(--text-3);
+    font-family: 'Flaco', Verdana, sans-serif;
+    font-size: 9.5px;
+    color: rgba(255, 138, 247, 0.7);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border: 0.4px solid gray;
-    padding: 11px;
+    letter-spacing: 0.18em;
+    background: rgba(255, 138, 247, 0.07);
+    border: 1px solid rgba(255, 138, 247, 0.2);
+    padding: 6px 10px;
     border-bottom: none;
 }
 
@@ -1785,7 +1828,7 @@ input, button, textarea, select {
 /* === MOBILE STYLES === */
 @media (max-width: 768px) {
     .split-container {
-        padding: 12px;
+        padding: 0;
         gap: 0;
     }
 
@@ -1928,9 +1971,9 @@ input, button, textarea, select {
         transform: scale(0.8);
     }
 
-    /* === Mobile: keep the desktop layout, just make it scrollable === */
+    /* === Mobile: grid layout, no horizontal scroll === */
     html, body {
-        overflow-x: auto !important;
+        overflow-x: hidden !important;
         overflow-y: auto !important;
         height: auto !important;
         min-height: 100%;
@@ -1938,7 +1981,7 @@ input, button, textarea, select {
     .split-container {
         height: auto !important;
         min-height: 100vh;
-        padding: 20px !important;
+        padding: 0 !important;
         gap: 0 !important;
     }
     .panel.desktop {
@@ -1946,21 +1989,26 @@ input, button, textarea, select {
         width: 100%;
         height: auto !important;
         min-height: 100vh;
-        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
         border: none;
         position: relative;
     }
-    /* Canvas adapts to viewport width — JS reflows icons into a narrower, taller scatter */
     .desktop-canvas {
         width: 100% !important;
         min-width: 0 !important;
+        overflow-x: hidden !important;
+    }
+    .band-grid {
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    /* Smaller labels/icons so the scatter still has breathing room at narrow widths */
-    .desktop-icon .label { max-width: 100px; line-height: 1.3; }
+    /* Compact icons/labels for grid cells at mobile sizes */
+    .band-grid .desktop-icon .label { font-size: 12px; max-width: 120px; line-height: 1.3; margin-top: 6px; }
     .desktop-icon .icon { width: 44px; height: 44px; }
     .desktop-icon .icon.img-thumb { width: 44px; height: 44px; }
-    .desktop-icon .meta { }
+    .band-grid .desktop-icon .meta { font-size: 8px; }
 
     /* Modals: full-screen on phones */
     .card-window,
@@ -2073,10 +2121,7 @@ input, button, textarea, select {
 }
 
 /* Accent-colored window borders */
-.file-window          { border-color: rgba(255,138,247,0.32); }
-.document-window      { border-color: rgba(234,240,  0,0.28); }
-.folder-window        { border-color: rgba(144,241,239,0.30); }
-.mobile-chat-overlay  { border-color: rgba(144,241,239,0.26); }
+.mobile-chat-overlay  { border-color: rgba(255, 138, 247, 0.42); }
 
 /* JSON viewer */
 #jsonContent { line-height: 1.55; }
@@ -2086,7 +2131,8 @@ input, button, textarea, select {
 
 /* Folder */
 .folder-item            { padding: 2px 10px; }
-.folder-item .item-name { font-family: var(--font-ui); }
+.folder-item .item-name { font-family: 'Flaco', Verdana, sans-serif; font-size: 10.5px; }
+.folder-item .item-desc { font-family: 'Flaco', Verdana, sans-serif; font-size: 10px; color: rgba(144,241,239,0.55); }
 .folder-item .item-size,
 .folder-item .item-date { }
 .folder-footer          { padding: 5px 12px; }
@@ -2223,14 +2269,25 @@ input, button, textarea, select {
     }
 }
 
-/* Voice memos: desktop only */
+
 @media (max-width: 768px) {
-    .voice-memo-icon { display: none !important; }
+    .band-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 280px;
+    }
+    .band-grid > * {
+        height: 280px;
+    }
 }
 
-/* Single-column layout: centre every icon around left:50% */
-@media (max-width: 768px) {
-    .desktop-icon { transform: translateX(-50%); }
+@media (max-width: 480px) {
+    .band-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+    }
+    .band-grid > * {
+        height: 220px;
+    }
 }
 
 /* Admin mode: draggable icons */

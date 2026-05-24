@@ -1,18 +1,27 @@
     async function renderDesktopLayout() {
+        const IS_EMBED = window.ARCHIVE_EMBED_MODE === true;
+        // Prefix relative asset paths so they resolve correctly from the homepage.
+        function embedPath(p) {
+            if (!IS_EMBED || !p || p.startsWith('/') || p.startsWith('http')) return p;
+            return '/archive/' + p;
+        }
         try {
             const r = await fetch('/api/avatars');
             const files = await r.json();
-            if (files.length) window.DISCORD_AVATARS = files;
+            if (files.length) window.DISCORD_AVATARS = IS_EMBED ? files.map(embedPath) : files;
         } catch(e) {}
         window.DISCORD_AVATARS = window.DISCORD_AVATARS || [];
-        const canvas = document.querySelector('.desktop-canvas');
+        const canvas = IS_EMBED
+            ? document.querySelector('#archive-embed')
+            : document.querySelector('.desktop-canvas');
         if (!canvas || !window.DESKTOP_LAYOUT) return;
 
         // desktop-labels.json is the manifest: only listed items render, in their listed band.
         // desktop-layout.js provides x/y, type, and asset paths. Deleting a key hides it silently.
         let manifest = {};
         try {
-            const r = await fetch('desktop-labels.json', { cache: 'no-store' });
+            const manifestUrl = IS_EMBED ? '/archive/desktop-labels.json' : 'desktop-labels.json';
+            const r = await fetch(manifestUrl, { cache: 'no-store' });
             manifest = await r.json();
         } catch(e) {}
 
@@ -63,6 +72,7 @@
                                     },
             'group-chat':   it => ({ cls: 'desktop-icon',                                 click: `openBotGroupChat()` }),
             'folder':       it => ({ cls: 'desktop-icon',                                 click: `openFolder('${it.folder}')`,            icon: ICON_FOLDER }),
+            'link':         it => ({ cls: 'desktop-icon char-file-icon',                  click: `window.open("${it.url}", "_blank")` }),
             'comment-thread': it => {
                                       const html = (it.comments || []).map(c => `
                                         <div class="card-comment">
@@ -135,8 +145,6 @@
                                     },
         };
 
-        const bandTops = Object.fromEntries(window.DESKTOP_LAYOUT.bands.map(b => [b.id, b.top]));
-
         // Build flat key → item map from layout (layout provides position + asset paths)
         const itemMap = {};
         Object.values(window.DESKTOP_LAYOUT.items).forEach(items => {
@@ -146,60 +154,77 @@
             });
         });
 
-        // Render only items in the manifest, in the band the manifest assigns them to.
-        // JSON order = top-to-bottom position within the band; x stays from the layout.
-        Object.entries(manifest).forEach(([bandId, bandEntries]) => {
-            const bandTop    = bandTops[bandId] ?? 0;
-            const bandDef    = window.DESKTOP_LAYOUT.bands.find(b => b.id === bandId);
-            const bandHeight = bandDef ? bandDef.height : 1000;
-            const keys       = Object.keys(bandEntries);
-            const n          = keys.length;
-            const PAD        = 80; // top and bottom padding within band
-            const rowHeight  = n > 1 ? (bandHeight - PAD * 2) / (n - 1) : 0;
+        // Single grid for all items across all bands
+        const gridWrap = document.createElement('div');
+        gridWrap.className = 'band-grid-wrap';
+        canvas.appendChild(gridWrap);
+        const singleGrid = document.createElement('div');
+        singleGrid.className = 'band-grid';
+        gridWrap.appendChild(singleGrid);
 
-            keys.forEach((key, idx) => {
+        // Invisible band anchors for scroll navigation (archive page only)
+        if (!IS_EMBED) {
+            window.DESKTOP_LAYOUT.bands.forEach(band => {
+                const anchor = document.createElement('div');
+                anchor.id = 'band-' + band.id;
+                anchor.style.cssText = 'position:absolute;width:1px;height:1px;pointer-events:none';
+                canvas.appendChild(anchor);
+            });
+        }
+
+        // Render all manifest items into the single grid, in band order
+        window.DESKTOP_LAYOUT.bands.forEach(band => {
+            const bandEntries = manifest[band.id];
+            if (!bandEntries) return;
+
+            Object.keys(bandEntries).forEach(key => {
                 const override = bandEntries[key];
                 const item     = itemMap[key];
-                if (!item) return; // key not in layout — silently skip
+                if (!item) return;
 
                 const recipe = RECIPES[item.type];
                 if (!recipe) return;
-                const result = recipe(item);
+                // In embed mode, prefix relative asset paths so they resolve from the homepage.
+                const patchedItem = IS_EMBED ? Object.assign({}, item, {
+                    portrait:   embedPath(item.portrait),
+                    thumbnail:  embedPath(item.thumbnail),
+                    audioPath:  embedPath(item.audioPath),
+                    videoPath:  embedPath(item.videoPath),
+                    path:       embedPath(item.path),
+                    comments:   item.comments ? item.comments.map(c => Object.assign({}, c, { avatar: embedPath(c.avatar) })) : item.comments,
+                }) : item;
+                const result = recipe(patchedItem);
                 if (!result) return;
                 const { cls, click, icon, iconHtml, data } = result;
 
                 const label = override.label !== undefined ? override.label : item.label;
                 const meta  = override.meta  !== undefined ? override.meta  : item.meta;
-                const savedPos = adminGetSavedPos(key);
-                const y     = savedPos ? savedPos.y : override.y !== undefined ? override.y : PAD + idx * rowHeight;
-                const x     = savedPos ? savedPos.x : override.x !== undefined ? override.x : item.x;
 
                 const div = document.createElement('div');
                 if (cls) div.className = cls;
-                div.style.position = 'absolute';
-                div.style.top  = (bandTop + y) + 'px';
-                div.style.left = x + 'px';
-                div.dataset.key  = key;
-                div.dataset.posX = Math.round(x);
-                div.dataset.posY = Math.round(y);
+                div.dataset.key = key;
                 if (click) div.setAttribute('onclick', click);
-                if (document.body.classList.contains('admin-mode')) initAdminDrag(div, bandTop);
                 if (data) Object.entries(data).forEach(([k, v]) => { div.dataset[k] = v; });
                 const showPlay      = item.showPlayBtn || item.type === 'voice-memo';
                 const iconBlock     = iconHtml || (icon ? `<div class="icon">${icon}</div>` : '');
-                const portraitBlock = item.portrait ? `<img src="${item.portrait}" class="portrait-icon" draggable="false" alt="">` : '';
+                const portraitBlock = patchedItem.portrait ? `<img src="${patchedItem.portrait}" class="portrait-icon" draggable="false" alt="">` : '';
                 const labelBlock    = (label !== undefined && label !== null) ? `<span class="label">${label}</span>` : '';
-                const voiceAnonymizedSources = ['Chris, AI researcher', 'Delta, ex-bot maker & psychology student', 'my diary'];
-                const showVoiceAnonymized = item.type === 'voice-memo' && voiceAnonymizedSources.includes(meta);
                 div.innerHTML =
                     portraitBlock + iconBlock + labelBlock +
                     (meta ? `<div class="meta-group"><span class="meta">${meta}</span></div>` : '') +
                     (showPlay ? `<span class="play-pill"><svg width="7" height="9" viewBox="0 0 7 9" fill="currentColor" style="display:block;flex-shrink:0"><path d="M0 0 L7 4.5 L0 9 Z"/></svg>play</span>` : '');
-                canvas.appendChild(div);
+                singleGrid.appendChild(div);
             });
         });
     }
     renderDesktopLayout();
+
+// Prefix relative paths with /archive/ when running embedded on the homepage.
+function aPath(p) {
+    return (window.ARCHIVE_EMBED_MODE === true && !p.startsWith('/') && !p.startsWith('http'))
+        ? '/archive/' + p
+        : p;
+}
 
 const characters = {};
 const charKeys = ['victoria', 'chloe', 'eleanor', 'logan', 'priest', 'minho', 'luna', 'parents'];
@@ -303,7 +328,7 @@ function generateTimestamp(daysAgo = 0, hoursAgo = 0) {
 // Load all character data
 async function loadCharacters() {
     for (const key of charKeys) {
-        const res = await fetch(`character-data/${charFiles[key]}`);
+        const res = await fetch(aPath(`character-data/${charFiles[key]}`));
         characters[key] = await res.json();
     }
     startGroupChat();
@@ -819,7 +844,7 @@ const diaryEntries = {};
 
 async function loadDiary() {
     try {
-        const res = await fetch('api/diary.json');
+        const res = await fetch(aPath('api/diary.json'));
         const entries = await res.json();
         entries.forEach(e => { diaryEntries[e.slug] = e; });
     } catch (e) {}
@@ -872,7 +897,7 @@ async function openDiaryFolder() {
     cancelAutoOpenMakerChat();
     let entries = [];
     try {
-        const res = await fetch('api/diary.json');
+        const res = await fetch(aPath('api/diary.json'));
         entries = await res.json();
     } catch (e) {}
 
@@ -1065,7 +1090,7 @@ const channelDescriptions = {
 // Load creator chat messages
 async function loadCreatorChat() {
     try {
-        const response = await fetch('chat-messages.json');
+        const response = await fetch(aPath('chat-messages.json'));
         creatorChatData = await response.json();
 
         // Update channel badges
@@ -1172,7 +1197,7 @@ function closeCreatorChat() {
 let mayMessagesData = null;
 async function loadMayMessages() {
     if (mayMessagesData) return mayMessagesData;
-    const response = await fetch('chat-messages-may-2026.json');
+    const response = await fetch(aPath('chat-messages-may-2026.json'));
     mayMessagesData = await response.json();
     return mayMessagesData;
 }
@@ -1180,7 +1205,7 @@ async function loadMayMessages() {
 let craftMessagesData = null;
 async function loadCraftMessages() {
     if (craftMessagesData) return craftMessagesData;
-    const response = await fetch('chat-messages-craft.json');
+    const response = await fetch(aPath('chat-messages-craft.json'));
     craftMessagesData = await response.json();
     return craftMessagesData;
 }
@@ -1188,7 +1213,7 @@ async function loadCraftMessages() {
 let communityMessagesData = null;
 async function loadCommunityMessages() {
     if (communityMessagesData) return communityMessagesData;
-    const response = await fetch('chat-messages-community.json');
+    const response = await fetch(aPath('chat-messages-community.json'));
     communityMessagesData = await response.json();
     return communityMessagesData;
 }
@@ -1196,7 +1221,7 @@ async function loadCommunityMessages() {
 let userMessagesData = null;
 async function loadUserMessages() {
     if (userMessagesData) return userMessagesData;
-    const response = await fetch('chat-messages-user.json');
+    const response = await fetch(aPath('chat-messages-user.json'));
     userMessagesData = await response.json();
     return userMessagesData;
 }
@@ -1204,7 +1229,7 @@ async function loadUserMessages() {
 let marginsMessagesData = null;
 async function loadMarginsMessages() {
     if (marginsMessagesData) return marginsMessagesData;
-    const response = await fetch('chat-messages-margins.json');
+    const response = await fetch(aPath('chat-messages-margins.json'));
     marginsMessagesData = await response.json();
     return marginsMessagesData;
 }
@@ -1212,7 +1237,7 @@ async function loadMarginsMessages() {
 let introMessagesData = null;
 async function loadIntroMessages() {
     if (introMessagesData) return introMessagesData;
-    const response = await fetch('chat-messages-intro.json');
+    const response = await fetch(aPath('chat-messages-intro.json'));
     introMessagesData = await response.json();
     return introMessagesData;
 }
@@ -1398,7 +1423,7 @@ function getDiscordAvatar(username) {
 function renderChatMessage(msg, visible = false) {
     const visibleClass = visible ? 'visible' : '';
     const reactionsHtml = renderChatReactions(msg.reactions, visible);
-    const avatarSrc = msg.noAvatar ? null : (msg.avatar || getDiscordAvatar(msg.username));
+    const avatarSrc = msg.noAvatar ? null : aPath(msg.avatar || getDiscordAvatar(msg.username));
     const avatarClass = avatarSrc && avatarSrc.includes('anime-bitmap') ? 'avatar avatar-top' : 'avatar';
     const avatarHtml = avatarSrc ? `<img class="${avatarClass}" src="${avatarSrc}" alt="">` : '';
     const bodyParts = [msg.action, msg.text.replace(/\n/g, '<br>')].filter(Boolean);
@@ -1441,7 +1466,7 @@ function renderGroupChatMessage({ username, color, text }, visible = false) {
 let botPostsData = null;
 async function loadBotPosts() {
     if (botPostsData) return botPostsData;
-    const res = await fetch('bot-requests/posts.json');
+    const res = await fetch(aPath('bot-requests/posts.json'));
     botPostsData = await res.json();
     return botPostsData;
 }
@@ -1645,16 +1670,13 @@ const botRequestImagePaths = new Set(
 );
 
 const botRequestPositions = (function() {
-    const bandTops = Object.fromEntries((window.DESKTOP_LAYOUT?.bands || []).map(b => [b.id, b.top]));
     const panels = window.DESKTOP_LAYOUT?.botRequestPanels || [];
-    // Support legacy { bandId: [slots] } shape and current flat [{band, y, x}] shape
     if (Array.isArray(panels)) {
-        return panels.map(s => ({ top: (bandTops[s.band] || 0) + s.y, left: s.x, visible: s.visible !== false }));
+        return panels.map(s => ({ band: s.band, visible: s.visible !== false }));
     }
     const out = [];
     Object.entries(panels).forEach(([bandId, slots]) => {
-        const bandTop = bandTops[bandId] || 0;
-        slots.forEach(s => out.push({ top: bandTop + s.y, left: s.x }));
+        slots.forEach(s => out.push({ band: bandId, visible: true }));
     });
     return out;
 })();
@@ -1664,6 +1686,7 @@ function initBotRequestEntries() {
     const requests = creatorChatData['char-requests'] || [];
     const canvas = document.querySelector('.desktop-canvas');
     if (!canvas) return;
+    if (!document.querySelector('.band-grid')) { setTimeout(initBotRequestEntries, 100); return; }
 
     // Bot requests integrated into character cards (skip standalone desktop entries)
     const integratedTitles = new Set(['Mentally Unwell Dad and Stressed Mom']);
@@ -1687,12 +1710,11 @@ function initBotRequestEntries() {
 
         const iconEl = document.createElement('div');
         iconEl.className = 'desktop-icon bot-request-icon';
-        iconEl.style.top = pos.top + 'px';
-        iconEl.style.left = pos.left + 'px';
         iconEl.dataset.idx = idx;
         iconEl.onclick = (ev) => { ev.stopPropagation(); toggleBotRequest(idx); };
         iconEl.innerHTML = `${iconHtml}<span class="label">${softBreakLabel(title)}</span><span class="meta">bot request</span>`;
-        canvas.appendChild(iconEl);
+        const grid = document.querySelector('.band-grid');
+        (grid || canvas).appendChild(iconEl);
     });
     scheduleMobileReorder();
 }
@@ -1795,7 +1817,7 @@ function avatarFor(name) {
     const s = String(name || '');
     let h = 0;
     for (let i = 0; i < s.length; i++) h = ((h * 31) + s.charCodeAt(i)) | 0;
-    return 'img/discord%20avatars/' + AVATAR_POOL[Math.abs(h) % AVATAR_POOL.length].replace(/ /g, '%20');
+    return aPath('img/discord%20avatars/' + AVATAR_POOL[Math.abs(h) % AVATAR_POOL.length].replace(/ /g, '%20'));
 }
 
 function renderCardComments(charKey) {
@@ -1955,13 +1977,14 @@ async function openCharacterCard(charKey = 'priest') {
     pretty.innerHTML = '';
     win.classList.remove('hidden');
     win.classList.remove('show-side'); // default: JSON only, comments/chat hidden
+    if (isMobile()) win.classList.add('show-side'); // mobile: show comments below JSON by default
     updateCardSideButtons();
     setOverlay(true);
     playSound('open');
     showChatFloatClose(closeCardWindow);
 
     try {
-        const data = await (await fetch('character-data/' + filename)).json();
+        const data = await (await fetch(aPath('character-data/' + filename))).json();
         pane.scrollTop = 0;
         typeJson(pretty, JSON.stringify(data, null, 2));
     } catch (e) {
@@ -2071,12 +2094,10 @@ function toggleVoiceMemo(event, slug, audioPath) {
         player.classList.remove('docked');
         const icon = event?.currentTarget;
         if (icon) {
-            const rect = icon.getBoundingClientRect();
-            const playerW = 280;
-            const left = Math.max(12, Math.min(window.innerWidth - playerW - 12, rect.left));
-            const top = Math.min(window.innerHeight - 60, rect.bottom + 10);
-            player.style.left = left + 'px';
-            player.style.top = top + 'px';
+            player.style.left = '';
+            player.style.top = '';
+            player.classList.add('vm-inline');
+            icon.appendChild(player);
         }
     }
     vmStartDockOnScroll();
@@ -2131,14 +2152,14 @@ function vmSeek(event) {
 
 let vmScrollHandler = null;
 function vmStartDockOnScroll() {
+    const player = document.getElementById('voiceMemoPlayer');
+    if (player && player.classList.contains('vm-inline')) return;
     vmStopDockOnScroll();
     vmScrollHandler = () => {
-        const player = document.getElementById('voiceMemoPlayer');
-        if (player && !player.classList.contains('hidden')) player.classList.add('docked');
+        const p = document.getElementById('voiceMemoPlayer');
+        if (p && !p.classList.contains('hidden')) p.classList.add('docked');
         vmStopDockOnScroll();
     };
-    // Desktop: .desktop panel scrolls. Mobile: the window scrolls.
-    // Listen to both so docking works in either context.
     const desktop = document.querySelector('.desktop');
     if (desktop) desktop.addEventListener('scroll', vmScrollHandler, { once: true });
     window.addEventListener('scroll', vmScrollHandler, { once: true });
@@ -2154,7 +2175,11 @@ function closeVoiceMemo() {
     const player = document.getElementById('voiceMemoPlayer');
     const audio = document.getElementById('vmAudio');
     if (audio) { audio.pause(); audio.currentTime = 0; }
-    if (player) { player.classList.add('hidden'); player.classList.remove('docked'); }
+    if (player) {
+        player.classList.add('hidden');
+        player.classList.remove('docked', 'vm-inline');
+        if (player.parentElement !== document.body) document.body.appendChild(player);
+    }
     const captionEl = document.getElementById('vmCaptions');
     if (captionEl) { captionEl.classList.remove('visible'); captionEl.textContent = ''; }
     vmCaptionChunks = null;
@@ -2210,7 +2235,6 @@ function vmShowTranscript() {
 })();
 
 function toggleCardSide(view) {
-    cardTypeId++;
     const win = document.getElementById('cardWindow');
     if (!win) return;
     const isOpen = win.classList.contains('show-side');
@@ -2249,6 +2273,15 @@ const MOBILE_TOP_PAD    =  40;  // top padding
 
 function applyMobileLayout() {
     if (adminDragging) return;
+    // CSS grid layout handles all positioning — clear any stale inline styles and bail
+    if (document.querySelector('.band-grid')) {
+        document.querySelectorAll('.desktop-icon').forEach(el => {
+            el.style.top = '';
+            el.style.left = '';
+            el.style.transform = '';
+        });
+        return;
+    }
     const canvas = document.querySelector('.desktop-canvas');
     if (!canvas) return;
     const items = canvas.querySelectorAll('.desktop-icon, .band-banner');
@@ -2452,7 +2485,7 @@ applySoftBreaksToAllLabels();
 
 async function loadFoundImages() {
     try {
-        const res = await fetch('api/found-images.json');
+        const res = await fetch(aPath('api/found-images.json'));
         const images = await res.json();
         if (!images.length) return;
 
@@ -2488,7 +2521,7 @@ async function loadFoundImages() {
 
 async function loadBotRequestImages() {
     try {
-        const res = await fetch('api/bot-requests.json');
+        const res = await fetch(aPath('api/bot-requests.json'));
         let images = await res.json();
         // Strip images that belong to specific bot-request panels — those render inline in the panel
         images = images.filter(p => !botRequestImagePaths.has(p));
@@ -2590,7 +2623,7 @@ function openPdfWindow(path, title, comments) {
     if (Array.isArray(comments) && comments.length) {
         panel.innerHTML = comments.map(c => `
             <div class="card-comment chat-message">
-                <img class="avatar" src="${c.avatar}" alt="">
+                <img class="avatar" src="${aPath(c.avatar)}" alt="">
                 <div class="comment-content">
                     <div class="comment-meta"><span><span class="comment-handle">${c.handle}</span> &middot; <span class="comment-time">${c.time}</span></span></div>
                     <div class="comment-body">${c.body}</div>
@@ -2756,7 +2789,8 @@ function playSound(type) {
 document.querySelectorAll('.desktop-icon').forEach(icon => {});
 
 // Click on desktop background closes all windows
-document.querySelector('.desktop').addEventListener('click', (e) => {
+const _desktopEl = document.querySelector('.desktop');
+if (_desktopEl) _desktopEl.addEventListener('click', (e) => {
     // Only close if clicking directly on the desktop, not on icons or windows
     if (e.target.classList.contains('desktop')) {
         closeAllWindows();
@@ -3007,7 +3041,7 @@ let groupChatIndex = 0;
 
 async function loadGroupChat() {
     if (groupChatData) return groupChatData;
-    const res = await fetch('group-chat.json');
+    const res = await fetch(aPath('group-chat.json'));
     groupChatData = await res.json();
     return groupChatData;
 }
