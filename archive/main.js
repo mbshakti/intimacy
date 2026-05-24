@@ -55,7 +55,7 @@
                                                data: { audioPath: resolvedPath } };
                                     },
             'diary-folder': it => ({ cls: 'desktop-icon',                                 click: `openDiaryFolder()`,                     icon: ICON_FOLDER }),
-            'character':    it => ({ cls: 'desktop-icon char-file-icon',                  click: `openCharacterFile('${it.char}')` }),
+            'character':    it => ({ cls: 'desktop-icon char-file-icon char-json',         click: `openCharacterFile('${it.char}')` }),
             'bot-chat':     it => ({ cls: 'desktop-icon',                                 click: `openBotChat('${it.char}')` }),
             'creator-chat': it => ({ cls: 'desktop-icon', click: `openCreatorChat('${it.channel}')`, data: { channel: it.channel } }),
             'msg-card':     it => {
