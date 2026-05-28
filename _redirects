@@ -1,3 +1,14 @@
-/archive    /archive/           301
-/archive/   /desktop-voyeur/    200
-/archive/*  /desktop-voyeur/:splat  200
+/archive  /  301
+/archive/ /  301
+/archive/* /content/:splat 301
+/experience/main.js /script.js 301
+/experience/desktop-layout.js /script.js 301
+/experience/styles.css /style.css 301
+/experience/* /content/:splat 301
+/img/* /assets/images/:splat 301
+/font/* /assets/fonts/:splat 301
+/audio/* /assets/audio/:splat 301
+/video/* /assets/video/:splat 301
+/src/site.js /script.js 301
+/src/shared.css /style.css 301
+/shared.css /style.css 301

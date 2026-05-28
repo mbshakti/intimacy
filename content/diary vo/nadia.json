@@ -1,0 +1,26 @@
+{
+  "chunks": [
+    { "start": 0.0,    "end": 1.548, "text": "Researcher Nadia Eghbal," },
+    { "start": 1.548,  "end": 3.096, "text": "writing about online" },
+    { "start": 3.096,  "end": 4.64,  "text": "communities, draws on" },
+    { "start": 4.64,   "end": 6.293, "text": "Yochai Benkler's observation" },
+    { "start": 6.293,  "end": 7.946, "text": "that people collaborate" },
+    { "start": 7.946,  "end": 9.6,   "text": "online for seemingly" },
+    { "start": 9.6,    "end": 11.92, "text": "no obvious reason" },
+    { "start": 11.92,  "end": 14.24, "text": "beyond personal satisfaction." },
+    { "start": 14.24,  "end": 15.536,"text": "Unlike companies which" },
+    { "start": 15.536, "end": 16.832,"text": "have to hire," },
+    { "start": 16.832, "end": 18.128,"text": "manage, and direct" },
+    { "start": 18.128, "end": 18.56, "text": "labor," },
+    { "start": 18.56,  "end": 20.33, "text": "members of a" },
+    { "start": 20.33,  "end": 21.51, "text": "commons self-organize" },
+    { "start": 21.51,  "end": 23.28, "text": "around shared interest." },
+    { "start": 23.28,  "end": 24.405,"text": "When a group" },
+    { "start": 24.405, "end": 25.53, "text": "of loosely affiliated" },
+    { "start": 25.53,  "end": 26.655,"text": "strangers is excited" },
+    { "start": 26.655, "end": 28.16, "text": "by the same problem," },
+    { "start": 28.16,  "end": 29.36, "text": "they often contribute" },
+    { "start": 29.36,  "end": 30.56, "text": "without needing to" },
+    { "start": 30.56,  "end": 32.16, "text": "be told to." }
+  ]
+}

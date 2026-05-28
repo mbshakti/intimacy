@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>live chat</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F9F8F8;
+      --black:   #110B11;
+      --magenta: #FF8AF7;
+      --lime:    #EAF000;
+      --cyan:    #90F1EF;
+      --white:   #F9F8F8;
+      --muted:   rgba(144, 241, 239, 0.55);
+      --border:  rgba(255, 138, 247, 0.2);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--black);
+      font-family: Verdana, sans-serif;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .chat-wrap {
+      width: min(380px, 100%);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-feed {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(234,240,0,0.25) transparent;
+    }
+    .chat-feed::-webkit-scrollbar { width: 2px; }
+    .chat-feed::-webkit-scrollbar-thumb { background: rgba(234,240,0,0.35); }
+
+    .chat-msg {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      animation: msgIn 0.3s ease;
+    }
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-user {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+
+    .chat-text {
+      font-size: 11.5px;
+      line-height: 1.65;
+      color: rgba(249, 248, 248, 0.75);
+      word-break: break-word;
+    }
+
+    .chat-typing {
+      font-size: 11px;
+      color: var(--muted);
+      animation: typePulse 0.6s ease-in-out infinite alternate;
+      letter-spacing: 0.1em;
+    }
+    @keyframes typePulse {
+      from { opacity: 0.2; }
+      to   { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-wrap">
+  <div class="chat-feed" id="chat-feed"></div>
+</div>
+
+<script>
+  const queue = [
+    {"text":"I'm not joking. I'm building the Mother of All Bots. Not sure how many yet but I'm aiming for at LEAST 25 bots. And dropping them all at once","username":"BotDaddy","color":"#f97316"},
+    {"text":"Ayo wait, you're dropping 25 bots at once? Jesus.","username":"QuantumToast","color":"#d64545"},
+    {"text":"I want to hit that Trending like a truck. They're not gonna be bad bots","username":"BotDaddy","color":"#f97316"},
+    {"text":"Good to see you active again, I love your bots","username":"weeb_engineer","color":"#22c55e"}
+  ];
+
+  const feed = document.getElementById('chat-feed');
+  let idx = 0;
+
+  function scrollIfAtBottom() {
+    const atBottom = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 30;
+    if (atBottom) feed.scrollTop = feed.scrollHeight;
+  }
+
+  function nextMsg() {
+    const msg = queue[idx % queue.length];
+    idx++;
+
+    const typing = document.createElement('div');
+    typing.className = 'chat-typing';
+    typing.textContent = '· · ·';
+    typing.style.color = msg.color;
+    feed.appendChild(typing);
+    scrollIfAtBottom();
+
+    setTimeout(() => {
+      if (feed.contains(typing)) feed.removeChild(typing);
+
+      const el = document.createElement('div');
+      el.className = 'chat-msg';
+
+      const user = document.createElement('span');
+      user.className = 'chat-user';
+      user.style.color = msg.color;
+      user.textContent = msg.username;
+
+      const textEl = document.createElement('span');
+      textEl.className = 'chat-text';
+      textEl.textContent = msg.text;
+
+      el.appendChild(user);
+      el.appendChild(textEl);
+      feed.appendChild(el);
+      scrollIfAtBottom();
+
+      while (feed.children.length > 60) feed.removeChild(feed.firstChild);
+
+      if (idx < queue.length) setTimeout(nextMsg, 1800 + Math.random() * 2400);
+    }, 600 + Math.random() * 800);
+  }
+
+  setTimeout(nextMsg, 1000);
+</script>
+
+</body>
+</html>

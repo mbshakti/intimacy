@@ -1,0 +1,284 @@
+[
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Door's a door. I'll handle it.",
+    "delay": 2600
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Eight souls. No windows. The Lord places us where He wills.",
+    "delay": 5200
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "Has everyone eaten? There's no telling how long we'll be here.",
+    "delay": 4200
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "We will not panic. That much is decided.",
+    "delay": 5800
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "Decided by whom, exactly.",
+    "delay": 2700
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "No clock in the room. Worth noting.",
+    "delay": 5500
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "Um. Hi. Sorry. I don't \u2014 I don't know any of you?",
+    "delay": 3000
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Logan. That's all you need.",
+    "delay": 2500
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "Eleanor. You may sit if you wish.",
+    "delay": 5400
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Father Michael. Forty years in the parish. I know fear when I hear it.",
+    "delay": 5800
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "Victoria. And I don't sit on command, Eleanor.",
+    "delay": 2700
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "I'm Min-ho. It's okay, we'll figure this out together.",
+    "delay": 4000
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "Chloe.",
+    "delay": 5200
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "Luna. Sorry. Hi. This is so weird, haha.",
+    "delay": 2900
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Nervous laughter often hides a heavier heart, child.",
+    "delay": 5600
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "Oh. I \u2014 I just laugh when I'm nervous. That's all.",
+    "delay": 3100
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Leave the kid alone, Father.",
+    "delay": 2500
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "She can speak for herself. Can't you, Luna.",
+    "delay": 2700
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "It's alright, sir. We'll keep an eye out for you. You're not alone in this.",
+    "delay": 4400
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "Min-ho. Come stand near me. You have a steady manner.",
+    "delay": 5600
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "Oh \u2014 I'm fine where I am, but thank you.",
+    "delay": 3800
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "She's already picking favorites. Cute.",
+    "delay": 2500
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "I am establishing order. You may benefit from it eventually.",
+    "delay": 5800
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "The air vent is circulating. Whoever put us here wants us alive.",
+    "delay": 5400
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "Wait. Wants us alive? That's \u2014 that's a really scary way to phrase that.",
+    "delay": 2900
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "It's accurate.",
+    "delay": 5000
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "Luna. Sweetheart. Breathe. Who were you with before this.",
+    "delay": 2600
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "I \u2014 nobody. I was at home. I was on my phone.",
+    "delay": 3000
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "On your phone. Talking to someone special.",
+    "delay": 2700
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "That's \u2014 that's none of your business, actually.",
+    "delay": 2800
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Good. Modesty becomes you.",
+    "delay": 5400
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Christ, Father.",
+    "delay": 2500
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Mind your tongue.",
+    "delay": 5200
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "Are you two okay? Do you need to sit down for a minute?",
+    "delay": 4200
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "She is not fine. But she will not be told so.",
+    "delay": 5600
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Anyone tries the door yet, or are we still doing introductions.",
+    "delay": 2600
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "It's locked. I tried while you were talking.",
+    "delay": 5400
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Huh. Alright. You're useful.",
+    "delay": 2500
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "Luna, come sit by me. The men are getting loud.",
+    "delay": 2700
+  },
+  {
+    "name": "Luna",
+    "char": "luna",
+    "text": "I'm okay over here. Thanks though.",
+    "delay": 2900
+  },
+  {
+    "name": "Eleanor",
+    "char": "eleanor",
+    "text": "Wise girl.",
+    "delay": 5400
+  },
+  {
+    "name": "Victoria",
+    "char": "victoria",
+    "text": "Careful, Eleanor. You're showing your hand.",
+    "delay": 2600
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "Pride sits at this table heavy tonight.",
+    "delay": 5600
+  },
+  {
+    "name": "Min-ho",
+    "char": "minho",
+    "text": "Maybe we could just \u2014 go around and say one thing we noticed about the room? Something useful?",
+    "delay": 4400
+  },
+  {
+    "name": "Logan",
+    "char": "logan",
+    "text": "Kid's got the only good idea so far.",
+    "delay": 2500
+  },
+  {
+    "name": "Chloe",
+    "char": "chloe",
+    "text": "It's shaped like Ireland.",
+    "delay": 5400
+  },
+  {
+    "name": "Father Michael",
+    "char": "priest",
+    "text": "...The Lord has a sense of humor after all.",
+    "delay": 5800
+  }
+]

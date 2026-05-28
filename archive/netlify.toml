@@ -1,4 +1,0 @@
-[build]
-  command = "node scripts/build-static-data.js"
-  publish = "."
-  functions = "netlify/functions"
