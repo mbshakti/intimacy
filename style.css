@@ -63,7 +63,7 @@ a:visited {
     --type-heading-size: 16px;
     --type-body-size:    14px;
     --type-micro-size:   9px;
-    --type-quote-size:   24px;
+    --type-quote-size:   16px;
 
     --type-heading-line: 1.4;
     --type-body-line:    1.6;
@@ -2599,6 +2599,7 @@ input, button, textarea, select {
   gap: 5px;
 }
 .essay-title {
+  display: none;
   font-family: var(--type-heading-font);
   font-size: var(--type-heading-size);
   line-height: var(--type-heading-line);
@@ -3110,6 +3111,9 @@ dl dd { color: var(--white); margin: 0; }
     border-top: 0;
     border-left: 1px solid rgba(255, 138, 247, 0.2);
     justify-content: center;
+  }
+  .essay-title {
+    display: block;
   }
   .col-center { order: 2; border-right: none; border-bottom: 1px solid rgba(255, 138, 247, 0.2); }
   .col-chat {
