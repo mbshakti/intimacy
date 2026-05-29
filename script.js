@@ -3863,7 +3863,7 @@ let currentSection = null;
 const mobileNav = `
   <nav class="mobile-section-nav">
     <button onclick="goBack()">home</button>
-    <button onclick="showSection('directorNote')">director's note</button>
+    <button onclick="showSection('directorNote')">filmmaker's note</button>
     <button onclick="showSection('credits')">team & thanks</button>
     <button onclick="showSection('filmCredits')">credits</button>
     <button onclick="showSection('contact')">contact</button>
@@ -3946,9 +3946,9 @@ const sections = {
 
   directorNote: `
     ${mobileNav}
-    <p class="panel-label">// director's note</p>
+    <p class="panel-label">// filmmaker's note</p>
     <div class="director-note-content" data-directors-note>
-      <p class="center-desc">Loading director's note...</p>
+      <p class="center-desc">Loading filmmaker's note...</p>
     </div>`,
 
   screenings: `
@@ -4016,7 +4016,7 @@ const sections = {
 };
 
 const sectionTitles = {
-  directorNote: "director's note",
+  directorNote: "filmmaker's note",
   screenings: 'screenings / talks',
   credits: 'team & thanks',
   filmCredits: 'credits',
@@ -4056,7 +4056,7 @@ async function hydrateDirectorNote(root = document) {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     target.innerHTML = renderDirectorNoteMarkdown(await response.text());
   } catch (error) {
-    target.innerHTML = `<p class="center-desc">// error loading director's note</p>`;
+    target.innerHTML = `<p class="center-desc">// error loading filmmaker's note</p>`;
     console.error('Failed to load director note:', error);
   }
 }

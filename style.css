@@ -2667,6 +2667,10 @@ input, button, textarea, select {
 .director-signoff a:hover {
   color: var(--cyan);
 }
+.director-note-content .center-desc + .center-desc,
+.director-note-content .center-desc + .director-signoff {
+  margin-top: 1em;
+}
 .center-quote {
   color: rgba(144, 241, 239, 0.72);
   font-size: var(--type-quote-size);
