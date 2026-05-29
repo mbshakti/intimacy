@@ -48,9 +48,6 @@ window.DESKTOP_LAYOUT = {
         label: '60 minutes on AI chatbots.mp4',    meta: '0:37' },
       { type: 'character',  y: 100, x: 200, char: 'priest',
         label: 'judgemental_priest.json',           meta: '706 tokens', portrait: '/assets/images/icons/judgemental-priest.png' },
-      { type: 'voice-memo', y: 220, x: 580, slug: '2023-07-14',
-        audioPath: 'diary vo/theyre everywhere.mp3', showPlayBtn: true,
-        label: 'the beginning of a trail',          meta: 'my diary', portrait: 'img/anime-bitmap/shakti.png' },
       { type: 'msg-card', y: 340, x: 800, mayIndex: 0, msgFile: 'maker-chat',
         label: 'any requests for voices?',          meta: '7 messages',
         avatars: ['img/discord%20avatars/discord-avatar-06.jpg', 'img/discord%20avatars/discord-avatar-04.jpg', 'img/discord%20avatars/discord-avatar-07.jpg'] },
@@ -515,7 +512,9 @@ function contentPath(p) {
                 if (data) Object.entries(data).forEach(([k, v]) => { div.dataset[k] = v; });
                 const showPlay      = item.showPlayBtn || item.type === 'voice-memo';
                 const iconBlock     = iconHtml || (icon ? `<div class="icon">${icon}</div>` : '');
-                const portraitBlock = patchedItem.portrait ? `<img src="${patchedItem.portrait}" class="portrait-icon" draggable="false" alt="">` : '';
+                const portraitBlock = patchedItem.portrait && item.type !== 'character'
+                    ? `<img src="${patchedItem.portrait}" class="portrait-icon" draggable="false" alt="">`
+                    : '';
                 const extIcon = item.type === 'link' ? `<svg class="ext-link-icon" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 9L9 1M9 1H4M9 1V6"/></svg>` : '';
                 const labelBlock    = (label !== undefined && label !== null) ? `<span class="label">${label}${extIcon}</span>` : '';
                 div.innerHTML =
@@ -855,7 +854,20 @@ function getRandomOtherTypers(mainKey, count = 1) {
 // === WINDOW MANAGEMENT ===
 function setOverlay(visible) {
     document.getElementById('desktopOverlay').classList.toggle('active', visible);
-    document.body.classList.toggle('modal-open', visible);
+    if (visible) {
+        if (!document.body.classList.contains('modal-open')) {
+            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            document.body.dataset.scrollY = String(scrollY);
+            document.body.style.top = `-${scrollY}px`;
+            document.body.classList.add('modal-open');
+        }
+    } else if (document.body.classList.contains('modal-open')) {
+        const scrollY = Number(document.body.dataset.scrollY || 0);
+        document.body.classList.remove('modal-open');
+        document.body.style.top = '';
+        delete document.body.dataset.scrollY;
+        window.scrollTo(0, scrollY);
+    }
 }
 
 function closeAllWindows() {
@@ -867,6 +879,7 @@ function closeAllWindows() {
     stopUiAudio();
     document.getElementById('fileWindow').classList.add('hidden');
     document.getElementById('cardWindow').classList.add('hidden');
+    document.getElementById('infoWindow')?.classList.remove('active');
     document.getElementById('botRequestPanel')?.classList.remove('open');
     document.getElementById('documentWindow').classList.remove('active');
     document.getElementById('folderWindow').classList.remove('active');
@@ -2355,7 +2368,10 @@ function renderCardChat(charKey, animate = false) {
     });
     if (animate && toAnimate.length) {
         toAnimate.forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), 300 + i * 1400);
+            setTimeout(() => {
+                el.classList.add('visible');
+                container.scrollTop = container.scrollHeight;
+            }, 200 + i * 600);
         });
     }
     forceScrollBottom(container);
@@ -2495,6 +2511,40 @@ const _vmFmt = (sec) => {
     return `${m}:${s}`;
 };
 
+function groupCaptionChunksBySentence(chunks) {
+    const grouped = [];
+    let bucket = [];
+    const sentenceEnd = /[.!?]["')\]]?$/;
+    const flush = () => {
+        if (!bucket.length) return;
+        grouped.push({
+            start: bucket[0].start,
+            end: bucket[bucket.length - 1].end,
+            text: bucket.map(c => c.text.trim()).join(' ').replace(/\s+/g, ' '),
+        });
+        bucket = [];
+    };
+
+    chunks.forEach(chunk => {
+        const text = String(chunk.text || '').trim();
+        if (!text) return;
+        const parts = text.match(/[^.!?]+[.!?]["')\]]?|[^.!?]+$/g) || [text];
+        parts.forEach((part, index) => {
+            const clean = part.trim();
+            if (!clean) return;
+            bucket.push({
+                start: index === 0 ? chunk.start : chunk.end,
+                end: chunk.end,
+                text: clean,
+            });
+            if (sentenceEnd.test(clean)) flush();
+        });
+    });
+
+    flush();
+    return grouped;
+}
+
 function toggleVoiceMemo(event, slug, audioPath) {
     if (event) event.stopPropagation();
     const player = document.getElementById('voiceMemoPlayer');
@@ -2525,29 +2575,7 @@ function toggleVoiceMemo(event, slug, audioPath) {
         .then(r => r.ok ? r.json() : null)
         .then(data => {
             if (data && Array.isArray(data.chunks) && currentVoiceMemo === requestedSlug) {
-                // Merge 3-word generator chunks into sentence-bounded display chunks.
-                // A chunk ends at sentence punctuation OR when it gets too long.
-                const MAX_WORDS = 14;
-                const merged = [];
-                let bucket = [];
-                let wordCount = 0;
-                const flush = () => {
-                    if (!bucket.length) return;
-                    merged.push({
-                        start: bucket[0].start,
-                        end:   bucket[bucket.length - 1].end,
-                        text:  bucket.map(c => c.text).join(' '),
-                    });
-                    bucket = []; wordCount = 0;
-                };
-                for (const c of data.chunks) {
-                    bucket.push(c);
-                    wordCount += c.text.split(/\s+/).filter(Boolean).length;
-                    const endsAtSentence = /[.!?]["')\]]?$/.test(c.text.trim());
-                    if (endsAtSentence || wordCount >= MAX_WORDS) flush();
-                }
-                flush();
-                vmCaptionChunks = merged;
+                vmCaptionChunks = groupCaptionChunksBySentence(data.chunks);
                 if (captionEl) captionEl.classList.add('visible');
             }
         })
@@ -3834,11 +3862,10 @@ let currentSection = null;
 
 const mobileNav = `
   <nav class="mobile-section-nav">
-    <button onclick="goBack()">← back</button>
-    <button onclick="showSection('about')">about</button>
-    <button onclick="showSection('credits')">credits</button>
-    <button onclick="showSection('filmCredits')">footage credits</button>
-    <button onclick="showSection('musicCredits')">music credits</button>
+    <button onclick="goBack()">home</button>
+    <button onclick="showSection('directorNote')">director's note</button>
+    <button onclick="showSection('credits')">thanks</button>
+    <button onclick="showSection('filmCredits')">credits</button>
     <button onclick="showSection('contact')">contact</button>
   </nav>`;
 
@@ -3894,51 +3921,87 @@ const sections = {
     <p class="panel-label">// about</p>
     <p class="center-desc">Intimacy When the Other Side Is a Variable is a 20-minute video essay documenting a subculture of people who make AI roleplay bots. I spent three years lurking in the online spaces these bot makers gather, during which I collected screenshots, images, files, and messages. The film moves through that archive, weaving in interviews with people I meet along the way. The film asks what it means to design personality at the margins of the internet, and what the bots people build reveal about what they're longing for.</p>
     <p class="panel-label" style="margin-top:9px">// screenings / talks</p>
-    <div class="inline-section">
-      <p class="sidebar-item">Rhizome 7×7: Containment</p>
-      <p class="sidebar-venue">New Museum, New York City</p>
-      <p class="sidebar-date">May 16, 2026</p>
+    <div class="screening-row">
+      <span class="panel-label">June 3, 2026</span>
+      <span><span class="sidebar-item">NEW INC Demo Day Talk</span> <span class="sidebar-venue">New Museum, New York City</span></span>
     </div>
-    <hr class="sidebar-divider">
-    <div class="inline-section">
-      <p class="sidebar-item">NEW INC Demo Day Talk</p>
-      <p class="sidebar-venue">New Museum, New York City</p>
-      <p class="sidebar-date">June 3, 2026</p>
+    <div class="screening-row">
+      <span class="panel-label">May 16, 2026</span>
+      <span>
+        <span class="sidebar-item">Rhizome 7×7: Containment</span> <span class="sidebar-venue">New Museum, New York City</span>
+        <div class="screening-photos" aria-label="Rhizome 7x7 event photos">
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2001.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2002.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2003.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+        </div>
+        <span class="screening-photo-credit">Photos: Mason Wilson</span>
+      </span>
     </div>`,
+
+  directorNote: `
+    ${mobileNav}
+    <p class="panel-label">// director's note</p>
+    <p class="center-desc">Many young people are forming emotional attachments to AI chatbots. This is uncomfortable enough that most discourse is either dystopic (the world is ending!), or utopic (technology is the solution to loneliness!). Both responses are ways to look away with engaging further.</p>
+    <p class="center-desc">The documentary impulse, as I understand it, is the opposite of that. You displace your judgment and you notice, without deciding in advance what it means.</p>
+    <p class="center-desc">This documentary is three years of me being a voyeur in the spaces where young people gather and make bots together. This film is an invitation for you to be a voyeur in these spaces with me.</p>
+    <p class="director-signoff">— <a href="https://shaktimb.com" target="_blank" rel="noopener">Shakti Mb</a></p>`,
 
   screenings: `
     ${mobileNav}
     <p class="panel-label">// screenings / talks</p>
-    <div class="inline-section">
-      <p class="sidebar-item">Rhizome 7×7: Containment</p>
-      <p class="sidebar-venue">New Museum, New York City</p>
-      <p class="sidebar-date">May 16, 2026</p>
+    <div class="screening-row">
+      <span class="panel-label">June 3, 2026</span>
+      <span><span class="sidebar-item">NEW INC Demo Day Talk</span> <span class="sidebar-venue">New Museum, New York City</span></span>
     </div>
-    <hr class="sidebar-divider">
-    <div class="inline-section">
-      <p class="sidebar-item">NEW INC Demo Day Talk</p>
-      <p class="sidebar-venue">New Museum, New York City</p>
-      <p class="sidebar-date">June 3, 2026</p>
+    <div class="screening-row">
+      <span class="panel-label">May 16, 2026</span>
+      <span>
+        <span class="sidebar-item">Rhizome 7×7: Containment</span> <span class="sidebar-venue">New Museum, New York City</span>
+        <div class="screening-photos" aria-label="Rhizome 7x7 event photos">
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2001.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2002.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+          <figure>
+            <img src="/events/7x7/Mason%20Wilson%2003.JPG" alt="Rhizome 7x7 event photo by Mason Wilson">
+          </figure>
+        </div>
+        <span class="screening-photo-credit">Photos: Mason Wilson</span>
+      </span>
     </div>`,
 
   credits: `
     ${mobileNav}
-    <p class="panel-label">// credits <span style="opacity:0.45;letter-spacing:0.08em;">[scroll for full list]</span></p>
+    <p class="panel-label">// thanks</p>
     <div class="inline-credits">
       <div class="credit-row"><span class="panel-label">Created by</span><span>Shakti Mb</span></div>
       <div class="credit-row"><span class="panel-label">Visual Direction & Co-Editor</span><span>Kiana Fernandez</span></div>
-      <div class="credit-row"><span class="panel-label">Created during</span><span>Rhizome + Mozilla Counterstructural Commons Residency, 2026</span></div>
-      <div class="credit-row"><span class="panel-label">Fellow residents ♥ </span><span>Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
-      <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Mozilla, NEW INC, and Emergent Ventures</span></div>
-      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu</span></div>
+      <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Emergent Ventures, NEW INC, Mozilla</span></div>
+      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu, Mia Warren, Ella Krings, Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
     </div>`,
 
   filmCredits: `
     ${mobileNav}
-    <p class="panel-label">// footage credits <span style="opacity:0.45;letter-spacing:0.08em;">[source material]</span></p>
+    <p class="panel-label">// credits</p>
     <div class="inline-credits">
+      <div class="credit-row">
+        <span class="panel-label">Music credits</span>
+        <span>
+          <a href="https://jonivoid.bandcamp.com/album/epilogue" target="_blank" rel="noopener">epilogue by johnny_ripper</a>
+          <span class="credit-note">Joni Void, Bandcamp</span>
+        </span>
+      </div>
       ${filmCredits.map((item, index) => `
-        <div class="credit-row credit-row-full"${index === filmCredits.length - 1 ? ' style="border-bottom:none"' : ''}>
+        <div class="credit-row"${index === filmCredits.length - 1 ? ' style="border-bottom:none"' : ''}>
+          <span class="panel-label">${index === 0 ? 'Footage credits' : ''}</span>
           <span>
             <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
             ${item.note ? `<span class="credit-note">${item.note}</span>` : ''}
@@ -3946,30 +4009,28 @@ const sections = {
         </div>`).join('')}
     </div>`,
 
-  musicCredits: `
-    ${mobileNav}
-    <p class="panel-label">// music credits <span style="opacity:0.45;letter-spacing:0.08em;">[source material]</span></p>
-    <div class="inline-credits">
-      <div class="credit-row credit-row-full" style="border-bottom:none">
-        <span>
-          <a href="https://jonivoid.bandcamp.com/album/epilogue" target="_blank" rel="noopener">epilogue by johnny_ripper</a>
-          <span class="credit-note">Joni Void, Bandcamp</span>
-        </span>
-      </div>
-    </div>`,
-
   contact: `
     ${mobileNav}
     <p class="panel-label">// contact</p>
     <a class="contact-inline" href="mailto:mbshakti@gmail.com">→ mbshakti@gmail.com</a>
-    <p class="center-desc">For any inquiries.</p>`
+    <p class="center-desc">Please feel free to email me for a link to see the film, screening inquiries, or anything else.</p>`
+};
+
+const sectionTitles = {
+  directorNote: "director's note",
+  screenings: 'screenings / talks',
+  credits: 'thanks',
+  filmCredits: 'credits',
+  contact: 'contact'
 };
 
 function goBack() {
   const center = document.getElementById('col-center');
   center.innerHTML = defaultContent;
   currentSection = null;
+  document.querySelector('.intro')?.classList.remove('section-open');
   document.querySelectorAll('.intro-nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.desktop-section-nav button').forEach(b => b.classList.remove('active'));
 }
 
 function showSection(id) {
@@ -3983,9 +4044,45 @@ function showSection(id) {
 
   center.innerHTML = sections[id];
   currentSection = id;
+  document.querySelector('.intro')?.classList.add('section-open');
   navBtns.forEach(b => b.classList.remove('active'));
   const btn = document.querySelector(`.intro-nav button[onclick="showSection('${id}')"]`);
   if (btn) btn.classList.add('active');
+  document.querySelectorAll('.desktop-section-nav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.sectionNav === id);
+  });
+}
+
+function isMobileHomeLayout() {
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function sectionContentForWindow(id) {
+  return (sections[id] || '').replace(/<nav class="mobile-section-nav">[\s\S]*?<\/nav>/, '').trim();
+}
+
+function openInfoWindow(id) {
+  if (!sections[id]) return;
+  closeAllWindows();
+  const win = document.getElementById('infoWindow');
+  const title = document.getElementById('infoWindowTitle');
+  const content = document.getElementById('infoWindowContent');
+  if (!win || !title || !content) return;
+
+  title.textContent = sectionTitles[id] || 'info';
+  content.innerHTML = sectionContentForWindow(id);
+  win.classList.remove('hidden');
+  win.classList.add('active');
+  setOverlay(true);
+  playSound('open');
+}
+
+function openHomeSection(id) {
+  if (isMobileHomeLayout()) {
+    openInfoWindow(id);
+    return;
+  }
+  showSection(id);
 }
 
 function initChat() {

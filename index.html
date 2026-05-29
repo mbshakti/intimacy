@@ -80,7 +80,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="/style.css?v=18">
+    <link rel="stylesheet" href="/style.css?v=63">
 </head>
 <body>
 
@@ -90,46 +90,39 @@
 
   <header class="intro-nav">
     <div class="intro-nav-left">
-      <button onclick="showSection('about')">About</button>
-      <span class="nav-sep">|</span>
-      <button onclick="showSection('screenings')">Screenings / Talks</button>
-      <span class="nav-sep">|</span>
-      <button onclick="showSection('credits')">Credits</button>
-      <span class="nav-sep">|</span>
-      <button onclick="showSection('filmCredits')">Footage Credits</button>
-      <span class="nav-sep">|</span>
-      <button onclick="showSection('musicCredits')">Music Credits</button>
-    </div>
-    <div class="intro-nav-right">
-      <button onclick="showSection('contact')">Contact</button>
+      <span class="intro-nav-title">Intimacy When the Other Side Is a Variable</span>
     </div>
   </header>
 
   <div class="intro-body">
 
     <div class="col-left">
-      <div class="col-left-video">
-        <video src="/assets/video/vroid.mp4" autoplay loop muted playsinline></video>
+      <div class="col-left-gif">
+        <img src="/assets/video/waifu.gif?v=2" alt="">
       </div>
       <div class="col-left-info">
         <p class="essay-title">Intimacy When the Other Side Is a Variable</p>
-        <p>Coming soon ʕ✧ᴥ✧ʔ∽∽∽∽(҂◡_◡)</p>
-        <p class="essay-by">↳ a video essay by <a href="https://shaktimb.com" target="_blank" rel="noopener">Shakti Mb</a></p>
+        <p class="essay-desc">A film about spaces where people gather and make AI roleplay bots together.</p>
+        <div class="desktop-section-nav" aria-label="Section navigation">
+          <button class="cta-btn cta-btn-secondary" onclick="goBack()" data-section-nav="home">Home</button>
+          <button class="cta-btn cta-btn-secondary" onclick="showSection('directorNote')" data-section-nav="directorNote">Director's Note</button>
+          <button class="cta-btn cta-btn-secondary" onclick="showSection('screenings')" data-section-nav="screenings">Screenings / Talks</button>
+          <button class="cta-btn cta-btn-secondary" onclick="showSection('credits')" data-section-nav="credits">Thanks</button>
+          <button class="cta-btn cta-btn-secondary" onclick="showSection('filmCredits')" data-section-nav="filmCredits">Credits</button>
+          <button class="cta-btn cta-btn-secondary" onclick="showSection('contact')" data-section-nav="contact">Contact</button>
+        </div>
       </div>
     </div>
 
     <div class="col-center" id="col-center">
-      <p class="center-desc">A video essay about the people building AI personalities at the margins of the internet.</p>
-      <div class="link-list">
-        <button class="link-item" disabled>[1] → watch on youtube (coming soon)</button>
-        <button class="link-item" onclick="showSection('about')">[2] → about the essay</button>
-        <button class="link-item" onclick="showSection('screenings')">[3] → screenings</button>
-        <button class="link-item" onclick="showSection('credits')">[4] → credits</button>
-        <button class="link-item" onclick="showSection('filmCredits')">[5] → footage credits</button>
-        <button class="link-item" onclick="showSection('musicCredits')">[6] → music credits</button>
-        <a class="link-item" href="mailto:mbshakti@gmail.com">[7] → contact</a>
-      </div>
-      <button class="cta-btn" disabled>Watch the Essay — Coming Soon</button>
+      <p class="center-quote">“The opposite of play is not what is serious. It is what is real.” <span>— Johan Huizinga</span></p>
+      <a class="cta-btn" href="https://www.demofestival.org/tickets" target="_blank" rel="noopener">NEWINC Demo Tickets (JUN 3, 2026)</a>
+      <button class="cta-btn cta-btn-secondary" onclick="openHomeSection('directorNote')">Director's Note</button>
+      <button class="cta-btn cta-btn-secondary mobile-home-link" onclick="openHomeSection('screenings')">Screenings / Talks</button>
+      <button class="cta-btn cta-btn-secondary mobile-home-link" onclick="openHomeSection('credits')">Thanks</button>
+      <button class="cta-btn cta-btn-secondary mobile-home-link" onclick="openHomeSection('filmCredits')">Credits</button>
+      <button class="cta-btn cta-btn-secondary mobile-home-link" onclick="openHomeSection('contact')">Contact</button>
+      <a class="cta-btn cta-btn-secondary" href="https://shaktimb.com" target="_blank" rel="noopener">A film by Shakti Mb</a>
     </div>
 
     <div class="col-chat">
@@ -140,7 +133,7 @@
 
   <div class="intro-ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; </span><span>intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; intimacy when the other side is a variable &nbsp;*&nbsp; </span>
+      <span>Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; </span><span>Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; Film drops summer 2026 &nbsp;✧&nbsp; Web archive open now &nbsp;✧&nbsp; </span>
     </div>
   </div>
 
@@ -168,6 +161,20 @@
                     <!-- Content will be inserted here -->
                 </div>
                 <div class="window-path-bar">/users/shakti/documents/</div>
+            </div>
+
+            <!-- Homepage Info Window -->
+            <div class="window info-window" id="infoWindow">
+                <div class="window-titlebar">
+                    <div class="window-traffic-lights">
+                        <button class="traffic-light traffic-close" onclick="closeWindow('infoWindow')"></button>
+                        <button class="traffic-light traffic-minimize"></button>
+                        <button class="traffic-light traffic-maximize"></button>
+                    </div>
+                    <span class="window-title" id="infoWindowTitle">info</span>
+                </div>
+                <div class="info-window-body" id="infoWindowContent"></div>
+                <div class="window-path-bar">/users/shakti/homepage/</div>
             </div>
 
             <!-- Video Window -->
@@ -404,6 +411,6 @@
         </div>
     </div>
 
-<script src="/script.js?v=16"></script>
+<script src="/script.js?v=40"></script>
 </body>
 </html>

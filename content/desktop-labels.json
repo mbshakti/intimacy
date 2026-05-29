@@ -1,7 +1,6 @@
 {
   "intro": {
     "chris-waifus":     { "label": "Chris, AI researcher",            "meta": null },
-    "2023-07-14":       { "label": "My diary",                        "meta": null },
     "priest":           { "label": "judgemental_priest.json",        "meta": "706 tokens" },
     "msg-maker-chat-0": { "label": "any requests for voices?",       "meta": "7 messages" },
     "msg-intro-0":      { "label": "would you be up for a quick chat?", "meta": "Reddit DM" },
