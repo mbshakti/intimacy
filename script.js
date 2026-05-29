@@ -3984,7 +3984,7 @@ const sections = {
       <div class="credit-row"><span class="panel-label">Created by</span><span>Shakti Mb</span></div>
       <div class="credit-row"><span class="panel-label">Visual Direction & Co-Editor</span><span>Kiana Fernandez</span></div>
       <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Emergent Ventures, NEW INC, Mozilla</span></div>
-      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Tom Donohue, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu, Mia Warren, Ella Krings, Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
+      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Tom Donohue, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu, Mia Warren, Ella Krings, Michael Candy, Beck Haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi, Jason Isolini, Johan Michalove, Sofia Pujol</span></div>
     </div>`,
 
   filmCredits: `
