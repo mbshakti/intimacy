@@ -3864,7 +3864,7 @@ const mobileNav = `
   <nav class="mobile-section-nav">
     <button onclick="goBack()">home</button>
     <button onclick="showSection('directorNote')">director's note</button>
-    <button onclick="showSection('credits')">thanks</button>
+    <button onclick="showSection('credits')">team & thanks</button>
     <button onclick="showSection('filmCredits')">credits</button>
     <button onclick="showSection('contact')">contact</button>
   </nav>`;
@@ -3980,12 +3980,12 @@ const sections = {
 
   credits: `
     ${mobileNav}
-    <p class="panel-label">// thanks</p>
+    <p class="panel-label">// team & thanks</p>
     <div class="inline-credits">
       <div class="credit-row"><span class="panel-label">Created by</span><span>Shakti Mb</span></div>
       <div class="credit-row"><span class="panel-label">Visual Direction & Co-Editor</span><span>Kiana Fernandez</span></div>
       <div class="credit-row"><span class="panel-label">Research supported by</span><span>Rhizome, Emergent Ventures, NEW INC, Mozilla</span></div>
-      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu, Mia Warren, Ella Krings, Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
+      <div class="credit-row" style="border-bottom:none"><span class="panel-label">Special thanks ♥</span><span>Chris Hua, Bri Griffin, Tyler Cowen, Tom Donohue, Spencer Yen, Tara Kelton, Delta, Liv Acuña, Michael Connor, Nitcha (Fame) Tothong, Kelly Li, Emmad Mazhari, Nayantara Mb, Léo Serriere, Kalyani Prasad, Lauren Wong Lee, Yuting Duan, Ruth Gebreyesus, Jordan Cooper, Laura Alvear Roa, Aurora Mititelu, Mia Warren, Ella Krings, Michael Candy, beck haberstroh, Ari J. Melenciano, Ramsey Nasser, zzyw, Steven Jos Phan, Chris Woebken, Lucilla Grossi</span></div>
     </div>`,
 
   filmCredits: `
@@ -4019,7 +4019,7 @@ const sections = {
 const sectionTitles = {
   directorNote: "director's note",
   screenings: 'screenings / talks',
-  credits: 'thanks',
+  credits: 'team & thanks',
   filmCredits: 'credits',
   contact: 'contact'
 };
