@@ -3085,6 +3085,10 @@ dl dd { color: var(--white); margin: 0; }
     border-left: 0;
     border-right: 0;
   }
+  .intro-nav,
+  .center-quote {
+    display: none;
+  }
   .desktop-home-link { display: none; }
   .desktop-section-nav { display: none !important; }
   .intro-body {
@@ -3105,6 +3109,7 @@ dl dd { color: var(--white); margin: 0; }
   .col-left-info {
     border-top: 0;
     border-left: 1px solid rgba(255, 138, 247, 0.2);
+    justify-content: center;
   }
   .col-center { order: 2; border-right: none; border-bottom: 1px solid rgba(255, 138, 247, 0.2); }
   .col-chat {
