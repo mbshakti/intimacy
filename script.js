@@ -3947,10 +3947,9 @@ const sections = {
   directorNote: `
     ${mobileNav}
     <p class="panel-label">// director's note</p>
-    <p class="center-desc">Many young people are forming emotional attachments to AI chatbots. This is uncomfortable enough that most discourse is either dystopic (the world is ending!), or utopic (technology is the solution to loneliness!). Both responses are ways to look away with engaging further.</p>
-    <p class="center-desc">The documentary impulse, as I understand it, is the opposite of that. You displace your judgment and you notice, without deciding in advance what it means.</p>
-    <p class="center-desc">This documentary is three years of me being a voyeur in the spaces where young people gather and make bots together. This film is an invitation for you to be a voyeur in these spaces with me.</p>
-    <p class="director-signoff">— <a href="https://shaktimb.com" target="_blank" rel="noopener">Shakti Mb</a></p>`,
+    <div class="director-note-content" data-directors-note>
+      <p class="center-desc">Loading director's note...</p>
+    </div>`,
 
   screenings: `
     ${mobileNav}
@@ -4024,6 +4023,44 @@ const sectionTitles = {
   contact: 'contact'
 };
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderInlineMarkdown(text) {
+  return escapeHtml(text).replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+}
+
+function renderDirectorNoteMarkdown(markdown) {
+  return markdown
+    .trim()
+    .split(/\n\s*\n/)
+    .map(block => {
+      const text = block.replace(/\s*\n\s*/g, ' ').trim();
+      const className = text.startsWith('— ') ? 'director-signoff' : 'center-desc';
+      return `<p class="${className}">${renderInlineMarkdown(text)}</p>`;
+    })
+    .join('');
+}
+
+async function hydrateDirectorNote(root = document) {
+  const target = root.querySelector('[data-directors-note]');
+  if (!target) return;
+  try {
+    const response = await fetch(contentPath('directors-note.md'), { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    target.innerHTML = renderDirectorNoteMarkdown(await response.text());
+  } catch (error) {
+    target.innerHTML = `<p class="center-desc">// error loading director's note</p>`;
+    console.error('Failed to load director note:', error);
+  }
+}
+
 function goBack() {
   const center = document.getElementById('col-center');
   center.innerHTML = defaultContent;
@@ -4043,6 +4080,7 @@ function showSection(id) {
   }
 
   center.innerHTML = sections[id];
+  hydrateDirectorNote(center);
   currentSection = id;
   document.querySelector('.intro')?.classList.add('section-open');
   navBtns.forEach(b => b.classList.remove('active'));
@@ -4071,6 +4109,7 @@ function openInfoWindow(id) {
 
   title.textContent = sectionTitles[id] || 'info';
   content.innerHTML = sectionContentForWindow(id);
+  hydrateDirectorNote(content);
   win.classList.remove('hidden');
   win.classList.add('active');
   setOverlay(true);
